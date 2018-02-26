@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse, subprocess, itertools, collections, sys
-from streamparser.streamparser import parse
+from streamparser_fixed.streamparser import parse
 import pprint
 
 def analyzeText(text, locPair, pair, directory=None):

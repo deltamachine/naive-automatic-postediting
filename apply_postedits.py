@@ -4,7 +4,7 @@ import argparse, subprocess, itertools, pprint, sys
 import collections
 from collections import Counter
 import re # regular expressions
-from streamparser.streamparser import parse
+from streamparser_fixed.streamparser import parse
 import csv
 
 def analyzeText(text, locPair, pair, directory=None):
