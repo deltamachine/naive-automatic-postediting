@@ -10,7 +10,9 @@ def analyzeText(text, locPair, pair, directory=None):
         p2 = subprocess.Popen(['lt-proc', '-a', './{2}-{3}.automorf.bin'.format(locPair[0], locPair[1], pair[0], pair[1])], stdin=p1.stdout, stdout=subprocess.PIPE, cwd=directory)
     else:
         p2 = subprocess.Popen(['lt-proc', '-a', '/usr/local/share/apertium/apertium-{0}-{1}/{2}-{3}.automorf.bin'.format(locPair[0], locPair[1], pair[0], pair[1])], stdin=p1.stdout, stdout=subprocess.PIPE)
+    
     p1.stdout.close()
+
     return p2.communicate()[0].decode('utf-8').strip()
 
 def translateText(text, pair, directory=None):
@@ -19,10 +21,10 @@ def translateText(text, pair, directory=None):
         p2 = subprocess.Popen(['apertium', '-d', directory, '{0}-{1}'.format(*pair)], stdin=p1.stdout, stdout=subprocess.PIPE)
     else:
         p2 = subprocess.Popen(['apertium', '{0}-{1}'.format(*pair)], stdin=p1.stdout, stdout=subprocess.PIPE)
+
     p1.stdout.close()
+
     return p2.communicate()[0].decode('utf-8').strip()
-
-
 
 
 def getCorrespondences(sourceLanguage,targetLanguage,ignoreCase,maxSourceLength,directory,maxTranslationLength, s):
@@ -45,8 +47,10 @@ def getCorrespondences(sourceLanguage,targetLanguage,ignoreCase,maxSourceLength,
             analyzedSourceUnitsSubsegments.append((analyzedSourceUnits[startIndex:lastIndex+1], startIndex, lastIndex)) #s, i, j (analyzed units forms of them)
 
     translatedText = translateText(sourceText, pair, directory=directory)
+
     if ignoreCase:
         translatedText = translatedText.lower()
+        
     analyzedTranslation = analyzeText(translatedText, pair, pair[::-1], directory=directory)
     analyzedTranslationUnits = list(parse(analyzedTranslation, withText=True))
 

@@ -6,8 +6,7 @@ from sklearn.model_selection import train_test_split
 def write_content(content, file):
     with open(file, 'w', encoding='utf-8') as file:
         for elem in content:
-            file.write(elem)
-            file.write('\n')
+            file.write('%s\n' % (elem))
 
 
 def parse_corpora(input_file):
@@ -23,6 +22,13 @@ def parse_corpora(input_file):
     s_train, s_test, m_train, m_test, t_train, t_test = train_test_split(
         source, mt, target, test_size=0.2, random_state=42)
 
+    s_train = s_train[:500]
+    m_train = m_train[:500]
+    t_train = t_train[:500]
+    s_test = s_test[:100]
+    m_test = m_test[:100]
+    t_test = t_test[:100]
+
     print('Size of train set: %s sentences' % (len(s_train)))
     print('Size of test set: %s sentences' % (len(s_test)))
 
@@ -36,7 +42,6 @@ def parse_corpora(input_file):
 
 def main():
     input_file = sys.argv[1]
-
     parse_corpora(input_file)
 
 

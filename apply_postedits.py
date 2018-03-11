@@ -157,7 +157,11 @@ if __name__ == '__main__':
             tokT = translatedText.split()
 #            if verbose :
 #               print(translatedText)
+            
+            #this stuff prints original text
             print("[",sen_num,"]", sourceText)
+
+            #this stuff prints machine-translated text without postedits
             print("@ ",translatedText)
             results=Counter() #empty counter container for all postedits of this sentence
             for s,t,ref in opD :
@@ -186,8 +190,17 @@ if __name__ == '__main__':
                    for element in posteditedlist :
                       postedited=postedited+" "+element
                    results[postedited.strip()] += 1
+            
+            with open('testfile.txt', 'a', encoding='utf-8') as file:
+                if results != {}:
+                    file.write('[%s] %s\n@ %s\n' % (sen_num, sourceText, translatedText))
+                    for p in results:
+                        file.write('$ %s\n' % (p))
+                    file.write('\n')
+
             for p in results :
-                print(p,results[p])
+            #this stuff prints postedited sentences
+                print(p, results[p])
 
         #           print(translatedText[0:pos-1]+"\t" + ref)
         #           print((translatedText[0:pos-1] + ref).split())
