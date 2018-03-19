@@ -1,7 +1,19 @@
+import re
 import sys
 import json
 from sklearn.model_selection import train_test_split
 
+
+def fix_mistakes(input_file):
+    with open(input_file, 'r', encoding='utf-8') as file:
+        corpus = file.read()
+
+    corpus = re.sub(',\n,\n,', ',', corpus)
+    corpus = re.sub(',\n,', ',', corpus)
+    corpus = re.sub('\n\n', '\n', corpus)
+
+    return corpus
+      
 
 def write_content(content, file):
     with open(file, 'w', encoding='utf-8') as file:
@@ -9,8 +21,9 @@ def write_content(content, file):
             file.write('%s\n' % (elem))
 
 
-def parse_corpora(input_file):
-    full_corpus = json.load(open(input_file))
+def parse_corpora(corpus, train_size, test_size):
+    full_corpus = json.loads(corpus)
+
     source, mt, target = [], [], []
 
     for elem in full_corpus:
@@ -22,12 +35,12 @@ def parse_corpora(input_file):
     s_train, s_test, m_train, m_test, t_train, t_test = train_test_split(
         source, mt, target, test_size=0.2, random_state=42)
 
-    s_train = s_train[:500]
-    m_train = m_train[:500]
-    t_train = t_train[:500]
-    s_test = s_test[:100]
-    m_test = m_test[:100]
-    t_test = t_test[:100]
+    s_train = s_train[:train_size]
+    m_train = m_train[:train_size]
+    t_train = t_train[:train_size]
+    s_test = s_test[:test_size]
+    m_test = m_test[:test_size]
+    t_test = t_test[:test_size]
 
     print('Size of train set: %s sentences' % (len(s_train)))
     print('Size of test set: %s sentences' % (len(s_test)))
@@ -42,7 +55,10 @@ def parse_corpora(input_file):
 
 def main():
     input_file = sys.argv[1]
-    parse_corpora(input_file)
+    train_size = int(sys.argv[2])
+    test_size = int(sys.argv[3])
+    corpus = fix_mistakes(input_file)
+    parse_corpora(corpus, train_size, test_size)
 
 
 if __name__ == '__main__':
