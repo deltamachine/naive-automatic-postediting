@@ -15,12 +15,12 @@ def score_sentences(postedited_set, lang_model):
 
 		with open('scores.txt', 'a', encoding='utf-8') as file:
 			original_score = model.score(original_sentence, bos = True, eos = True)
-			file.write('%s\t%s\n' % (original_sentence, original_score))
+			file.write('MT %s\t%s\n' % (original_sentence, original_score))
 
 			for variant in postedited_sentences:
 				variant = variant.strip('$ ')
 				pe_score = model.score(variant, bos = True, eos = True)
-				file.write('%s\t%s\n' % (variant, pe_score))
+				file.write('PE %s\t%s\n' % (variant, pe_score))
 
 			file.write('\n')
 
