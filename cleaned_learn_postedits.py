@@ -58,14 +58,13 @@ def create_opA(mt, pe, alignment):
 def create_opB(correspondences):
     opB = set()
 
-    """for s, t, i, j, k, l in correspondences:
-        print(s, t)
-        t = re.sub("\s+", " ", t)
-        opB.add((s, t))"""
-
-    for s, t in correspondences:
+    for s, t, i, j, k, l in correspondences:
         t = re.sub("\s+", " ", t)
         opB.add((s, t))
+
+    """for s, t in correspondences:
+        t = re.sub("\s+", " ", t)
+        opB.add((s, t))"""
 
     return opB
 
@@ -86,7 +85,7 @@ def extract_operations(ed_algorithm, source, mt, pe):
 
     opA = create_opA(mt, pe, alignment)
 
-    """correspondences = getCorrespondences(
+    correspondences = getCorrespondences(
         args.sourceLanguage,
         args.targetLanguage,
         args.ignoreCase,
@@ -97,15 +96,15 @@ def extract_operations(ed_algorithm, source, mt, pe):
 
     with open('cor.txt', 'a', encoding='utf-8') as file:
         for s, t, i, j, k, l in correspondences:
-            file.write('%s\t%s\n' % (s, t))"""
+            file.write('%s\t%s\n' % (s, t))
 
-    correspondences = []
+    """correspondences = []
 
     with open('cor.txt', 'r', encoding='utf-8') as file:
         for line in file.readlines():
             line = line.strip('\n')
             cor = line.split('\t')
-            correspondences.append(cor)
+            correspondences.append(cor)"""
 
     opB = create_opB(correspondences)
 
