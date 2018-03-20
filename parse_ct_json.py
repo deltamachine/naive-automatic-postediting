@@ -2,6 +2,7 @@ import re
 import sys
 import json
 from sklearn.model_selection import train_test_split
+from nltk import sent_tokenize
 
 
 def fix_mistakes(input_file):
@@ -11,6 +12,7 @@ def fix_mistakes(input_file):
     corpus = re.sub(',\n,\n,', ',', corpus)
     corpus = re.sub(',\n,', ',', corpus)
     corpus = re.sub('\n\n', '\n', corpus)
+    corpus = re.sub('\[[0-9]+\]', '', corpus)
 
     return corpus
       
@@ -18,20 +20,31 @@ def fix_mistakes(input_file):
 def write_content(content, file):
     with open(file, 'w', encoding='utf-8') as file:
         for elem in content:
-            file.write('%s\n' % (elem))
+            file.write('%s\n' % (elem.strip(' ')))
 
 
-def parse_corpora(corpus, train_size, test_size):
+def parse_corpus(corpus):
     full_corpus = json.loads(corpus)
 
     source, mt, target = [], [], []
 
     for elem in full_corpus:
         if elem['mt'] and elem['mt']['engine'] == 'Apertium':
-            source.append(elem['source']['content'])
-            mt.append(elem['mt']['content'])
-            target.append(elem['target']['content'])
+            s = sent_tokenize(elem['source']['content'])
+            m = sent_tokenize(elem['mt']['content'])
+            t = sent_tokenize(elem['target']['content'])
 
+            if len(s) == len(m) and len(s) == len(t):
+                source += s
+                mt += m
+                target += t
+
+    print('Size of the whole sentence-aligned corpus: %s sentences' % (len(source)))
+
+    return source, mt, target
+
+
+def prepare_sets(source, mt, target, train_size, test_size):
     s_train, s_test, m_train, m_test, t_train, t_test = train_test_split(
         source, mt, target, test_size=0.2, random_state=42)
 
@@ -41,9 +54,6 @@ def parse_corpora(corpus, train_size, test_size):
     s_test = s_test[:test_size]
     m_test = m_test[:test_size]
     t_test = t_test[:test_size]
-
-    print('Size of train set: %s sentences' % (len(s_train)))
-    print('Size of test set: %s sentences' % (len(s_test)))
 
     write_content(s_train, 'en_train.txt')
     write_content(m_train, 'es_mt_train.txt')
@@ -57,8 +67,10 @@ def main():
     input_file = sys.argv[1]
     train_size = int(sys.argv[2])
     test_size = int(sys.argv[3])
+
     corpus = fix_mistakes(input_file)
-    parse_corpora(corpus, train_size, test_size)
+    source, mt, target = parse_corpus(corpus)
+    prepare_sets(source, mt, target, train_size, test_size)
 
 
 if __name__ == '__main__':
