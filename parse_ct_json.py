@@ -46,7 +46,7 @@ def parse_corpus(corpus):
 
 def prepare_sets(source, mt, target, train_size, test_size):
     s_train, s_test, m_train, m_test, t_train, t_test = train_test_split(
-        source, mt, target, test_size=0.2, random_state=42)
+        source, mt, target, test_size=0.2, random_state=12345)
 
     s_train = s_train[:train_size]
     m_train = m_train[:train_size]

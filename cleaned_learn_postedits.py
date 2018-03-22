@@ -3,7 +3,7 @@ from lib.edwf2 import EDWF  # Modified version of Pankaj's library
 # code lifted from
 # http://stackoverflow.com/questions/25109001/phrase-extraction-algorithm-for-statistical-machine-translation
 from lib.phr_ex import phrase_extraction
-from lib.explain2 import getCorrespondences
+from lib.explain2_cache import getCorrespondences
 import pprint  # for pretty printing of correspondences
 import re  # regular expressions
 import csv
@@ -62,10 +62,6 @@ def create_opB(correspondences):
         t = re.sub("\s+", " ", t)
         opB.add((s, t))
 
-    """for s, t in correspondences:
-        t = re.sub("\s+", " ", t)
-        opB.add((s, t))"""
-
     return opB
 
 
@@ -93,18 +89,6 @@ def extract_operations(ed_algorithm, source, mt, pe):
         args.directory,
         args.maxTranslationLength,
         source.strip())
-
-    with open('cor.txt', 'a', encoding='utf-8') as file:
-        for s, t, i, j, k, l in correspondences:
-            file.write('%s\t%s\n' % (s, t))
-
-    """correspondences = []
-
-    with open('cor.txt', 'r', encoding='utf-8') as file:
-        for line in file.readlines():
-            line = line.strip('\n')
-            cor = line.split('\t')
-            correspondences.append(cor)"""
 
     opB = create_opB(correspondences)
 
