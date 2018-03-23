@@ -44,33 +44,37 @@ def parse_corpus(corpus):
     return source, mt, target
 
 
-def prepare_sets(source, mt, target, train_size, test_size):
+def prepare_sets(source, mt, target, source_lang, target_lang, train_size, test_size):
     s_train, s_test, m_train, m_test, t_train, t_test = train_test_split(
         source, mt, target, test_size=0.2, random_state=12345)
 
-    s_train = s_train[:train_size]
-    m_train = m_train[:train_size]
-    t_train = t_train[:train_size]
-    s_test = s_test[:test_size]
-    m_test = m_test[:test_size]
-    t_test = t_test[:test_size]
+    if train_size != 'default' and test_size != 'default':
+        train_size, test_size = int(train_size), int(test_size)
+        s_train = s_train[:train_size]
+        m_train = m_train[:train_size]
+        t_train = t_train[:train_size]
+        s_test = s_test[:test_size]
+        m_test = m_test[:test_size]
+        t_test = t_test[:test_size]
 
-    write_content(s_train, 'en_train.txt')
-    write_content(m_train, 'es_mt_train.txt')
-    write_content(t_train, 'es_train.txt')
-    write_content(s_test, 'en_test.txt')
-    write_content(m_test, 'es_mt_test.txt')
-    write_content(t_test, 'es_test.txt')
+    write_content(s_train, source_lang + '_train.txt')
+    write_content(m_train, target_lang + '_mt_train.txt')
+    write_content(t_train, target_lang + '_train.txt')
+    write_content(s_test, source_lang + '_test.txt')
+    write_content(m_test, target_lang + '_mt_test.txt')
+    write_content(t_test, target_lang + '_test.txt')
 
 
 def main():
     input_file = sys.argv[1]
-    train_size = int(sys.argv[2])
-    test_size = int(sys.argv[3])
+    source_lang = sys.argv[2]
+    target_lang = sys.argv[3]
+    train_size = sys.argv[4]
+    test_size = sys.argv[5]
 
     corpus = fix_mistakes(input_file)
     source, mt, target = parse_corpus(corpus)
-    prepare_sets(source, mt, target, train_size, test_size)
+    prepare_sets(source, mt, target, source_lang, target_lang, train_size, test_size)
 
 
 if __name__ == '__main__':
