@@ -1,0 +1,20 @@
+classifier: /home/anna/Desktop/gsoc18/ru-uk.classifier
+classifier_type: svm
+source_lang: ru
+target_lang: uk
+source_dictionary: /home/anna/Desktop/gsoc18/ruuk.pruned
+target_dictionary: /home/anna/Desktop/gsoc18/ukru.pruned
+normalize_by_length: True
+treat_oovs: True
+qmax_limit: 20
+disable_features_quest: True
+good_examples: 50000
+wrong_examples: 50000
+good_test_examples: 2000
+wrong_test_examples: 2000
+good_test_histogram: [47, 65, 55, 51, 53, 64, 129, 152, 223, 1161]
+wrong_test_histogram: [973, 363, 187, 131, 112, 85, 58, 49, 26, 16]
+precision_histogram: [0.5000000, 0.6553691, 0.7398119, 0.7935065, 0.8374060, 0.8807947, 0.9178611, 0.9440688, 0.9705470, 0.9864061]
+recall_histogram: [1.0000000, 0.9765000, 0.9440000, 0.9165000, 0.8910000, 0.8645000, 0.8325000, 0.7680000, 0.6920000, 0.5805000]
+accuracy_histogram: [0.5000000, 0.7315000, 0.8060000, 0.8390000, 0.8590000, 0.8737500, 0.8790000, 0.8612500, 0.8355000, 0.7862500]
+length_ratio: 1.0209067
