@@ -1,12 +1,7 @@
-import argparse
-from lib.edwf2 import EDWF  # Modified version of Pankaj's library
-# code lifted from
-# http://stackoverflow.com/questions/25109001/phrase-extraction-algorithm-for-statistical-machine-translation
+import argparse, pprint, re, csv
+from lib.edwf2 import EDWF
 from lib.phr_ex import phrase_extraction
 from lib.explain2_fast import getCorrespondences
-import pprint  # for pretty printing of correspondences
-import re  # regular expressions
-import csv
 
 """
 ===================== Global arguments section =================================

@@ -3,7 +3,6 @@
 import argparse, subprocess, itertools, collections, sys, pipes, re
 from streamparser_fixed.streamparser import parse
 import pprint
-from tinydb import TinyDB, Query
 
 
 def analyzeText(text, locPair, pair, directory=None):
@@ -47,10 +46,6 @@ def translate(input_file, output_file):
 def getCorrespondences(sourceLanguage,targetLanguage,ignoreCase,maxSourceLength,directory,maxTranslationLength, s):
     pair = (sourceLanguage, targetLanguage)
     sourceText = s.lower() if ignoreCase else s #S
-
-    cache_db = TinyDB('cache_db2.json')
-    Data = Query()
-
 
     #this stuff analyzes source text
     analyzedSourceText = analyzeText(sourceText, pair, pair, directory=directory)
