@@ -108,11 +108,17 @@ def main():
     mt_input = open(args.mt_input_file, "r")
     pe_input = open(args.pe_input_file, "r")
 
+    #print(source_input)
+
     for source, mt, pe in zip(source_input, mt_input, pe_input):
         ed_algorithm, distance, mt_tuple, pe_tuple = calculate_distance(source, mt, pe)
+        #print(source, mt, pe)
 
         if 1.0 - distance / max(len(mt_tuple), len(pe_tuple)) > 1.0 * args.fmt:
-            posteditops += extract_operations(ed_algorithm, source, mt, pe)
+           try:
+               posteditops += extract_operations(ed_algorithm, source, mt, pe)
+           except:
+               print(source, mt, pe)
     
     write_operations(posteditops)
 

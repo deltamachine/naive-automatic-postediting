@@ -1,0 +1,8 @@
+^(/(<lpar>$^(/(<lpar>$ ^10/10<num>$ ^)/)<rpar>$^)/)<rpar>$
+
+^(/(<lpar>$^(/(<lpar>$ ^ліпеня/ліпень<n><m><nn><sg><gen>$ ^)/)<rpar>$^)/)<rpar>$
+
+^(/(<lpar>$^(/(<lpar>$ ^1941/1941<num>$ ^)/)<rpar>$^)/)<rpar>$
+
+^(/(<lpar>$^(/(<lpar>$ ^гады/гад<n><m><aa><pl><nom>/год<n><m><nn><pl><nom>/год<n><m><nn><pl><acc>$ ^)/)<rpar>$^)/)<rpar>$
+
