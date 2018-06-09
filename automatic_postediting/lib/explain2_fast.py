@@ -17,9 +17,9 @@ def analyzeText(text, locPair, pair, directory=None):
     return p2.communicate()[0].decode('utf-8').strip()
 
 
-def analyze(input_file, output_file):
+def analyze(input_file, output_file, directory, pair):
     pipe = pipes.Template()
-    command = 'lt-proc -a /home/anna/apertium-en-es/es-en.automorf.bin'
+    command = 'lt-proc -a ' + directory + pair[1] + '-' + pair[0] + '.automorf.bin'
     pipe.append(command, '--')
     pipe.copy(input_file, output_file)
 
@@ -36,9 +36,9 @@ def translateText(text, pair, directory=None):
     return p2.communicate()[0].decode('utf-8').strip()
 
 
-def translate(input_file, output_file):
+def translate(input_file, output_file, directory, pair):
     pipe = pipes.Template()
-    command = 'apertium -d /home/anna/apertium-en-es en-es'
+    command = 'apertium -d ' + directory + ' ' + pair[0] + '-' + pair[1]
     pipe.append(command, '--')
     pipe.copy(input_file, output_file)
 
@@ -108,8 +108,8 @@ def getCorrespondences(sourceLanguage,targetLanguage,ignoreCase,maxSourceLength,
         for s in sourceTextSubsegments:
             file.write(('(( %s ))\n\n') % (s))
 
-    translate('source_text_subsegments.txt', 'translated_text_subsegments.txt')
-    analyze('translated_text_subsegments.txt', 'analyzed_translations.txt')
+    translate('source_text_subsegments.txt', 'translated_text_subsegments.txt', directory, pair)
+    analyze('translated_text_subsegments.txt', 'analyzed_translations.txt', directory, pair)
 
     """with open('source_text_subsegments.txt', 'r', encoding='utf-8') as file:
         sourceTextSubsegments = file.read().strip('\n').split('\n\n')  """
