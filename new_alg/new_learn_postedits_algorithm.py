@@ -5,13 +5,13 @@ from streamparser import parse
 from nltk.tokenize import word_tokenize as tokenizer
 
 
-def tag_corpus(input_file, output_file, s_lang, t_lang, data_type):
+def tag_corpus(input_file, output_file, s_lang, t_lang, path, data_type):
     pipe = pipes.Template()
 
     if data_type == 'source':
-    	command = 'apertium -d /home/deltamachine/apertium/apertium-' + s_lang + '-' + t_lang + ' ' + s_lang + '-' + t_lang + '-morph'
+    	command = 'apertium -d ' + path + ' ' + s_lang + '-' + t_lang + '-morph'
     else:
-    	command = 'apertium -d /home/deltamachine/apertium/apertium-' + s_lang + '-' + t_lang + ' ' + t_lang + '-' + s_lang + '-morph'
+    	command = 'apertium -d ' + path + ' ' + t_lang + '-' + s_lang + '-morph'
     
     pipe.append(command, '--')
     pipe.append('apertium-pretransfer', '--')
@@ -162,11 +162,12 @@ def align(source, target):
 		else:
 			pos_alignment.append((position, t_pos))
 			word_alignment.append((source[position][0], target[t_pos][0]))		
-
+    
+	#print(word_alignment)
 	return word_alignment
 
 
-def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, con_len=1):
+def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, cont_wind):
 	postedits = []
 
 	for i in range(len(source)):
@@ -182,42 +183,43 @@ def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, 
 			len_tar = len(target_align)
 
 			for j in range(len(mt_align)):
-				a = j - con_len
+				a = j - cont_wind
 				b = len_mt - j - 1
 
 				for k in range(len(target_align)):
-					c = k - con_len
+					c = k - cont_wind
 					d = len_tar - k - 1
 
-					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
-						if a <= 0 and c <= 0 and b > con_len and d > con_len:
-							elem1 = ' '.join([elem[0] for elem in mt_align[0:j+con_len+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[0:j+con_len+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[0:k+con_len+1]])
+					#print(mt_align[j][0], mt_align[j][1], target_align[k][1])
 
-						elif a <= 0 and c <= 0 and b <= con_len and d <= con_len:
+					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
+						if a <= 0 and c <= 0 and b > cont_wind and d > cont_wind:
+							elem1 = ' '.join([elem[0] for elem in mt_align[0:j+cont_wind+1]])
+							elem2 = ' '.join([elem[1] for elem in mt_align[0:j+cont_wind+1]])
+							elem3 = ' '.join([elem[1] for elem in target_align[0:k+cont_wind+1]])
+
+						elif a <= 0 and c <= 0 and b <= cont_wind and d <= cont_wind:
 							elem1 = ' '.join([elem[0] for elem in mt_align])
 							elem2 = ' '.join([elem[1] for elem in mt_align])
 							elem3 = ' '.join([elem[1] for elem in target_align])
 
-						elif a > 0 and c > 0 and b <= con_len and d <= con_len:
+						elif a > 0 and c > 0 and b <= cont_wind and d <= cont_wind:
 							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:]])
 							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:]])
 							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:]])
 
 						else:
-							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:j+con_len+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:j+con_len+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:k+con_len+1]])
-	
-						postedits.append((elem1, elem2, elem3))
+							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:j+cont_wind+1]])
+							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:j+cont_wind+1]])
+							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:k+cont_wind+1]])
 
+						postedits.append((elem1, elem2, elem3))
+		except:
+			pass
 			"""for j in range(len(mt_align)):
 				for k in range(len(target_align)):
 					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
 						postedits.append((mt_align[j][0], mt_align[j][1], target_align[k][1]))"""
-		except:
-			pass
 
 	return postedits
 
@@ -228,13 +230,15 @@ def main():
 	target_file = sys.argv[3]
 	s_lang = sys.argv[4]
 	t_lang = sys.argv[5]
+	path = sys.argv[6]
+	cont_wind = int(sys.argv[7])
 
-	tag_corpus(source_file, source_file + '.tagged', s_lang, t_lang, 'source')
-	tag_corpus(mt_file, mt_file + '.tagged', s_lang, t_lang, 'mt')
-	tag_corpus(target_file, target_file + '.tagged', s_lang, t_lang, 'target')
+	tag_corpus(source_file, source_file + '.tagged', s_lang, t_lang, path, 'source')
+	tag_corpus(mt_file, mt_file + '.tagged', s_lang, t_lang, path, 'mt')
+	tag_corpus(target_file, target_file + '.tagged', s_lang, t_lang, path, 'target')
 
 	source, mt, target, source_tagged, mt_tagged, target_tagged = open_files(source_file, mt_file, target_file)
-	postedits = find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged)
+	postedits = find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, cont_wind)
 	
 	with open(s_lang + '-' + t_lang + '-postedits.txt', 'w', encoding='utf-8') as file:
 		for elem in postedits:
