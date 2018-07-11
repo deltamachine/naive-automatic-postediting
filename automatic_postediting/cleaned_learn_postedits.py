@@ -45,6 +45,7 @@ def create_opA(mt, pe, alignment):
     opA = set()
 
     for pair, mt, pe in phrase_extraction(mt.strip(), pe.strip(), alignment):
+        print(pair, mt, pe)
         opA.add((mt.strip(), pe.strip()))
 
     return opA
@@ -73,8 +74,10 @@ def find_intersection(opA, opB):
 
 def extract_operations(ed_algorithm, source, mt, pe):
     alignment = ed_algorithm.get_alignment()
+    print(alignment)
 
     opA = create_opA(mt, pe, alignment)
+    #print(opA)
 
     correspondences = getCorrespondences(
         args.sourceLanguage,

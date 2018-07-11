@@ -1,6 +1,0 @@
-^(/(<lpar>$^(/(<lpar>$ ^Де/Де<adv><itg>$ ^)/)<rpar>$^)/)<rpar>$
-
-^(/(<lpar>$^(/(<lpar>$ ^вихід/вихід<n><m><nn><sg><nom>/вихід<n><m><nn><sg><acc>$ ^)/)<rpar>$^)/)<rpar>$
-
-^(/(<lpar>$^(/(<lpar>$ ^?/?<sent>$ ^)/)<rpar>$^)/)<rpar>$
-
