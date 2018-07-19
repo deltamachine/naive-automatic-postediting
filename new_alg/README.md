@@ -27,7 +27,7 @@ In all cases words are aligned only in those cases if difference between their p
 ### Usage
 
 ```
-new_learn_postedits_algorithm.py train.source train.mt train.target source_lang target_lang context_window
+new_learn_postedits_algorithm.py train.source train.mt train.target source_lang target_lang path_to_language_pair context_window
 ```
 
 context_window parameter - number of words around the word which should be postedited.
@@ -36,5 +36,5 @@ context_window parameter - number of words around the word which should be poste
 ### Example
 
 ```
-python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus 2
+python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus /home/anna/apertium-bel-rus 2
 ```
