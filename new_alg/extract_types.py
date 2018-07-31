@@ -27,7 +27,7 @@ def distance(a, b):
     return current_row[n]
 
 #приведи это говно в порядок, смотреть больно
-def find_bidix(postedits):
+def find_bidix(postedits, prefix):
 	bidix_entries = []
 	grammar_entries = []
 	other_entries = {}
@@ -97,11 +97,11 @@ def find_bidix(postedits):
 	for entrie in grammar_entries:
 		grammar_counter[entrie] += 1
 
-	with open('bidix_entries.txt', 'w', encoding='utf-8') as file:
+	with open(prefix + '-bidix_entries.txt', 'w', encoding='utf-8') as file:
 		for elem in bidix_counter.most_common():
 			file.write('%s%s\n' % (elem[0], str(elem[1])))
 
-	with open('grammar_entries.txt', 'w', encoding='utf-8') as file:
+	with open(prefix + '-grammar_entries.txt', 'w', encoding='utf-8') as file:
 		for elem in grammar_counter.most_common():
 			file.write('%s%s\n' % (elem[0], str(elem[1])))
 
@@ -112,17 +112,18 @@ def find_bidix(postedits):
 					v = sum(sec_value.values())
 					mc = sec_value.most_common(1)
 
-					if mc[0][1] * 100 / v > 50:
+					if mc[0][1] * 100 / v > 50 and v > 7:
 						print(key, sec_key, mc[0][0], mc[0][1], v, mc[0][1] * 100 / v)
 
 
 def main():
 	postedits = sys.argv[1]
+	prefix = sys.argv[2]
 
 	with open(postedits, 'r', encoding='utf-8') as file:
 		postedits = file.read().strip('\n').split('\n')
 
-	find_bidix(postedits)
+	find_bidix(postedits, prefix)
 
 
 if __name__ == '__main__':
