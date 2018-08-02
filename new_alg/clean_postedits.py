@@ -135,8 +135,13 @@ def clean_trash(orig_source, orig_mt, orig_target, freqs, s_lang, t_lang, input_
 						mt_letters = len(t_lemma)
 						mt_percent = (mt_letters - mt_dis) / mt_letters * 100
 
-						if st_percent >= 30 and sm_percent >= 30 and mt_percent >= 30:
+						if st_percent >= 30 and sm_percent >= 30 and mt_percent >= 30 and 'other' not in input_file:
 							file.write('%s\t%s\t%s\t%s\n' % (orig_source[counter], orig_mt[counter], orig_target[counter], freqs[counter]))
+						elif 'other' in input_file:
+							file.write('%s\t%s\t%s\t%s\n' % (orig_source[counter], orig_mt[counter], orig_target[counter], freqs[counter]))
+						else:
+							pass
+
 			
 			counter += 1
 

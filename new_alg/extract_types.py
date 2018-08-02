@@ -30,7 +30,9 @@ def distance(a, b):
 def find_bidix(postedits, prefix):
 	bidix_entries = []
 	grammar_entries = []
+	grammar_context = {}
 	other_entries = {}
+	other_context = {}
 
 	for elem in postedits:
 		elem = elem.split('\',')
@@ -68,7 +70,14 @@ def find_bidix(postedits, prefix):
 				if edits_percent >= 50 and edits_percent < 100:
 					grammar_entrie = '%s\t%s\t%s\t' % (source[i], mt[i], target[i])
 					grammar_entries.append(grammar_entrie)
-					#print(source)
+
+					context = '%s\t%s\t%s\t' % (' '.join(source), ' '.join(mt), ' '.join(target))
+					
+					if grammar_entrie in grammar_context.keys():
+						grammar_context[grammar_entrie].append(context)
+					else:
+						grammar_context[grammar_entrie] = [context]
+
 				elif mt[i] != target[i]: 
 					other_entrie = '%s\t%s\t%s\t' % (source[i], mt[i], target[i])
 					
@@ -105,15 +114,25 @@ def find_bidix(postedits, prefix):
 		for elem in grammar_counter.most_common():
 			file.write('%s%s\n' % (elem[0], str(elem[1])))
 
-	for key, value in other_entries.items():
-		if len(value.keys()) > 1:
-			for sec_key, sec_value in value.items():
-				if len(sec_value.keys()) > 1:
-					v = sum(sec_value.values())
-					mc = sec_value.most_common(1)
+	with open(prefix + '-grammar_context.txt', 'w', encoding='utf-8') as file:
+		for key in grammar_context.keys():
+			file.write('KEY\n%s\n' % (key))
 
-					if mc[0][1] * 100 / v > 50 and v > 7:
-						print(key, sec_key, mc[0][0], mc[0][1], v, mc[0][1] * 100 / v)
+			for value in grammar_context[key]:
+				file.write('%s\n' % (value))
+
+			file.write('\n\n\n')
+
+	with open(prefix + '-other_entries.txt', 'w', encoding='utf-8') as file:
+		for key, value in other_entries.items():
+			if len(value.keys()) > 1:
+				for sec_key, sec_value in value.items():
+					if len(sec_value.keys()) > 1:
+						v = sum(sec_value.values())
+						mc = sec_value.most_common(1)
+
+						if mc[0][1] * 100 / v > 50 and v > 7:
+							file.write('%s\t%s\t%s\t%s\t%s\n' % (key, sec_key, mc[0][0], mc[0][1], v))
 
 
 def main():
