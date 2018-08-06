@@ -548,4 +548,3 @@
 41	дадаваць	дадаваць	VERB	VB	Aspect=Imp|VerbForm=Inf|Voice=Act	_	_	_	_
 42	перасунь	перасуня	NOUN	VB	Aspect=Perf|VerbForm=Inf|Voice=Act	_	_	_	_
 43	прайшло	прайшць	VERB	VBC	Aspect=Imp|Gender=Neut|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin|Voice=Act	_	_	_	SpacesAfter=\n
-

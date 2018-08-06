@@ -1,0 +1,8 @@
+ведаць	vblex	True	none	none	знать	vblex	True	none	none
+клава	n	False	клав	ям/а__n_f_nn	клава	n	False	клав	аббатиса__n_f_aa
+педафіл	n	False	педафiл	ас__n_m_aa	педофил	n	True	none	none
+любiць	n	False	люб	чал/іць__vblex_impf	любить	vblex	True	none	none
+твой	prn	True	none	none	твой	prn	True	none	none
+люся	vblex	False	люс	ле/я__n_f_nn	люся	n	False	люс	ворожея__n_f_aa
+леў	n	True	none	none	лев	n	True	none	none
+знайсці	vblex	True	none	none	находить	vblex	True	none	none

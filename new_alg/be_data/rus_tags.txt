@@ -1,0 +1,9 @@
+ADV	adv
+APRO	prn
+NUM	num
+CONJ	cnjcoo
+V	vblex
+INTJ	ij
+S	n
+A	adj
+PART	part

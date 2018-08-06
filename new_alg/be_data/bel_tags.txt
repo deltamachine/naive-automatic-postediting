@@ -1,0 +1,12 @@
+ADV	adv
+ADP	pr
+PART	part
+PUNCT	sent
+SCONJ	cnjsub
+PROPN	np
+NOUN	n
+NUM	num
+ADJ	adj
+VERB	vblex
+PROP	pr
+DET	det
