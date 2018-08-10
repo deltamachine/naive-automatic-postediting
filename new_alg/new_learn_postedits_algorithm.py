@@ -6,19 +6,27 @@ from nltk.tokenize import word_tokenize as tokenizer
 
 
 def tag_corpus(input_file, output_file, s_lang, t_lang, path, data_type):
-    pipe = pipes.Template()
+	"""
+	Tag given corpus using apertium-tagger
+	"""
 
-    if data_type == 'source':
-    	command = 'apertium -d ' + path + ' ' + s_lang + '-' + t_lang + '-morph'
-    else:
-    	command = 'apertium -d ' + path + ' ' + t_lang + '-' + s_lang + '-morph'
-    
-    pipe.append(command, '--')
-    pipe.append('apertium-pretransfer', '--')
-    pipe.copy(input_file, output_file)
+	pipe = pipes.Template()
+
+	if data_type == 'source':
+		command = 'apertium -d ' + path + ' ' + s_lang + '-' + t_lang + '-morph'
+	else:
+		command = 'apertium -d ' + path + ' ' + t_lang + '-' + s_lang + '-morph'
+	
+	pipe.append(command, '--')
+	pipe.append('apertium-pretransfer', '--')
+	pipe.copy(input_file, output_file)
 
 
 def open_files(source_file, mt_file, target_file):
+	"""
+	Open and read all the needed files.
+	"""
+
 	with open(source_file, 'r', encoding='utf-8') as file:
 		source = file.read().strip('\n').split('\n')
 
@@ -41,6 +49,11 @@ def open_files(source_file, mt_file, target_file):
 
 
 def collect(sentence, sentence_tagged):
+	"""
+	Collect a dictionary, which contains positions of sentence words as keys
+	and tokens + tags as items. 
+	"""
+
 	sentence_words = {}
 	tokens = tokenizer(sentence.lower())
 
@@ -67,40 +80,43 @@ def collect(sentence, sentence_tagged):
 
 
 def distance(a, b):
-    """Calculates the Levenshtein distance between a and b."""
+	"""Calculates the Levenshtein distance between string a and string b."""
 
-    n, m = len(a), len(b)
+	n, m = len(a), len(b)
 
-    if n > m:
-        a, b = b, a
-        n, m = m, n
+	if n > m:
+		a, b = b, a
+		n, m = m, n
 
-    current_row = range(n + 1)
+	current_row = range(n + 1)
 
-    for i in range(1, m + 1):
-        previous_row, current_row = current_row, [i] + [0] * n
+	for i in range(1, m + 1):
+		previous_row, current_row = current_row, [i] + [0] * n
 
-        for j in range(1, n + 1):
-            add, delete, change = previous_row[j] + 1, current_row[j - 1] + 1, previous_row[j - 1]
-            
-            if a[j - 1] != b[i - 1]:
-                change += 1
+		for j in range(1, n + 1):
+			add, delete, change = previous_row[j] + 1, current_row[j - 1] + 1, previous_row[j - 1]
+			
+			if a[j - 1] != b[i - 1]:
+				change += 1
 
-            current_row[j] = min(add, delete, change)
+			current_row[j] = min(add, delete, change)
 
-    return current_row[n]
+	return current_row[n]
 
 
 def fill_options(source, target, t_pos):
+	"""
+	Go through every word in source sentence and compares it
+	with a given word in a target sentence. It calculates two numbers:
+		- ta
+	"""
+
 	options = {}
 
 	for s_pos in sorted(source.keys()):
 		intersection = source[s_pos][1] & target[t_pos][1]
 
-		if target[t_pos][0] == target[t_pos][1]:
-			tags_percent = 100
-
-		elif len(target[t_pos][1]) == 0 and len(source[s_pos][1]) == 0:
+		if len(target[t_pos][1]) == 0 and len(source[s_pos][1]) == 0:
 			tags_percent = 100
 
 		elif len(target[t_pos][1]) == 0 or len(source[s_pos][1]) == 0:
@@ -145,6 +161,10 @@ def fill_positions(source, target, t_pos, options):
 
 
 def align(source, target):
+	"""
+	Align source and target sentences.
+	"""
+
 	pos_alignment = []
 	word_alignment = []
 
@@ -162,12 +182,15 @@ def align(source, target):
 		else:
 			pos_alignment.append((position, t_pos))
 			word_alignment.append((source[position][0], target[t_pos][0]))		
-    
-	#print(word_alignment)
+	
 	return word_alignment
 
 
 def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, cont_wind):
+	"""
+	Collect a list of potential postedits.
+	"""
+
 	postedits = []
 
 	for i in range(len(source)):
@@ -189,8 +212,6 @@ def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, 
 				for k in range(len(target_align)):
 					c = k - cont_wind
 					d = len_tar - k - 1
-
-					#print(mt_align[j][0], mt_align[j][1], target_align[k][1])
 
 					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
 						if a <= 0 and c <= 0 and b > cont_wind and d > cont_wind:
@@ -216,10 +237,6 @@ def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, 
 						postedits.append((elem1, elem2, elem3))
 		except:
 			pass
-			"""for j in range(len(mt_align)):
-				for k in range(len(target_align)):
-					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
-						postedits.append((mt_align[j][0], mt_align[j][1], target_align[k][1]))"""
 
 	return postedits
 
