@@ -131,7 +131,7 @@ def find_bidix(postedits, prefix):
 						v = sum(sec_value.values())
 						mc = sec_value.most_common(1)
 
-						if mc[0][1] * 100 / v > 50 and v > 7:
+						if mc[0][1] * 100 / v > 30 and v > 7:
 							file.write('%s\t%s\t%s\t%s\t%s\n' % (key, sec_key, mc[0][0], mc[0][1], v))
 
 

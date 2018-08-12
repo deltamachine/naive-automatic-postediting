@@ -1,6 +1,7 @@
 import re
 import sys
 import pipes
+from itertools import product
 from streamparser import parse
 from nltk.tokenize import word_tokenize as tokenizer
 
@@ -107,8 +108,7 @@ def distance(a, b):
 def fill_options(source, target, t_pos):
 	"""
 	Go through every word in source sentence and compares it
-	with a given word in a target sentence. It calculates two numbers:
-		- ta
+	with a given word in a target sentence. It calculates two numbers
 	"""
 
 	options = {}
@@ -186,89 +186,92 @@ def align(source, target):
 	return word_alignment
 
 
-def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, cont_wind):
-	"""
-	Collect a list of potential postedits.
-	"""
+def apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, , s_lang, t_lang, postedits):
+	with open('%s-%s_corrected.txt' % (s_lang, t_lang), 'w', encoding='utf-8') as file:
+		for i in range(len(source)):
+			try:
+				source[i] = source[i].lower()
+				mt[i] = mt[i].lower()
+				target[i] = target[i].lower()
 
-	postedits, alignments = [], []
+				source_words = collect(source[i], source_tagged[i])
+				mt_words = collect(mt[i], mt_tagged[i])
+				mt_align = align(source_words, mt_words)
+				m = tokenizer(mt[i])
 
-	for i in range(len(source)):
-		try:
-			source_words = collect(source[i], source_tagged[i])
-			mt_words = collect(mt[i], mt_tagged[i])
-			target_words = collect(target[i], target_tagged[i])
+				edits = {}
 
-			mt_align = align(source_words, mt_words)
-			target_align = align(source_words, target_words)
+				for elem in mt_align:
+					elem = tuple(elem)
+					for operation in postedits:
+						if elem[0] == operation[0] and elem[1] == operation[1]:
+							if elem in edits.keys():
+								edits[elem].append(operation)
+							else:
+								edits[elem] = [operation]
 
-			len_mt = len(mt_align)
-			len_tar = len(target_align)
+				b = product(*list(edits.values()))
+				variants = []
+				checked = []
 
-			for j in range(len(mt_align)):
-				a = j - cont_wind
-				b = len_mt - j - 1
+				for elem in b:
+					v = []
 
-				for k in range(len(target_align)):
-					c = k - cont_wind
-					d = len_tar - k - 1
+					for j in range(len(m)):
+						for k in elem:
+							if m[j] == k[1]:							
+								v.append(k[2])
+								checked.append(m[j])
+							else:
+								c = 0
 
-					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
-						if a <= 0 and c <= 0 and b > cont_wind and d > cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align[0:j+cont_wind+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[0:j+cont_wind+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[0:k+cont_wind+1]])
+								for k in edits.keys():
+									if m[j] in k:
+										c += 1
 
-						elif a <= 0 and c <= 0 and b <= cont_wind and d <= cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align])
-							elem2 = ' '.join([elem[1] for elem in mt_align])
-							elem3 = ' '.join([elem[1] for elem in target_align])
+								if c == 0 and (len(v) == 0 or len(v) > 0 and v[-1] != m[j]) and m[j] not in checked:
+									v.append(m[j])
 
-						elif a > 0 and c > 0 and b <= cont_wind and d <= cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:]])
-							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:]])
+					variants.append(v)
 
-						else:
-							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:j+cont_wind+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:j+cont_wind+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:k+cont_wind+1]])
+				file.write('S\t%s\nMT\t%s\n' % (source[i], mt[i]))
 
-						postedits.append((elem1, elem2, elem3))
-					elif mt_align[j][0] == target_align[k][0] and mt_align[j][1] == target_align[k][1]:
-						alignments.append((mt_align[j][0], mt_align[j][1], target_align[k][1]))
-						#print((mt_align[j][0], mt_align[j][1], target_align[k][1]))
-					else:
-						pass
-		except:
-			pass
+				for v in variants:
+					file.write('ED\t%s\n' % (' '.join(v)))
 
-	return postedits, alignments
+				file.write('T\t%s\n\n' % (target[i]))
+
+
+			except:
+				pass
 
 
 def main():
 	source_file = sys.argv[1]
 	mt_file = sys.argv[2]
 	target_file = sys.argv[3]
-	s_lang = sys.argv[4]
-	t_lang = sys.argv[5]
-	path = sys.argv[6]
-	cont_wind = int(sys.argv[7])
+	postedits = sys.argv[4]
+	s_lang = sys.argv[5]
+	t_lang = sys.argv[6]
+	path = sys.argv[7]
+
+	with open(postedits, 'r', encoding='utf-8') as file:
+		file = file.read().strip('\n').split('\n')
+
+	postedits = []
+
+	for line in file:
+		line = line.split('\t')[:3]
+
+		if line not in postedits:
+			postedits.append(line)
 
 	tag_corpus(source_file, source_file + '.tagged', s_lang, t_lang, path, 'source')
 	tag_corpus(mt_file, mt_file + '.tagged', s_lang, t_lang, path, 'mt')
 	tag_corpus(target_file, target_file + '.tagged', s_lang, t_lang, path, 'target')
 
 	source, mt, target, source_tagged, mt_tagged, target_tagged = open_files(source_file, mt_file, target_file)
-	postedits, alignments = find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, cont_wind)
-	
-	with open(s_lang + '-' + t_lang + '-postedits.txt', 'w', encoding='utf-8') as file:
-		for elem in postedits:
-			file.write('%s\n' % (str(elem)))
-
-	with open(s_lang + '-' + t_lang + '-alignments.txt', 'w', encoding='utf-8') as file:
-		for elem in alignments:
-			file.write('%s\t%s\t%s\n' % (elem[0], elem[1], elem[2]))
+	apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, s_lang, t_lang, postedits)
 
 
 if __name__ == '__main__':
