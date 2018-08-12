@@ -186,7 +186,7 @@ def align(source, target):
 	return word_alignment
 
 
-def apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, , s_lang, t_lang, postedits):
+def apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, s_lang, t_lang, postedits):
 	with open('%s-%s_corrected.txt' % (s_lang, t_lang), 'w', encoding='utf-8') as file:
 		for i in range(len(source)):
 			try:

@@ -3,57 +3,60 @@ import os
 import sys
 
 
-input_file = sys.argv[1]
-eval_path = sys.argv[2]
+def clean_text(input_file):
+	with open(input_file, 'r', encoding='utf-8') as file:
+		input_file = file.read().strip('\n')
 
-with open(input_file, 'r', encoding='utf-8') as file:
-	input_file = file.read().strip('\n')
+	input_file = re.sub(' \.', '.', input_file)
+	input_file = re.sub(' ,', ',', input_file)
+	input_file = re.sub(' \?', '?', input_file)
+	input_file = re.sub(' !', '!', input_file)
+	input_file = re.sub(' :', ':', input_file)
+	input_file = re.sub(' ;', ';', input_file)
+	input_file = re.sub('" ', '"', input_file)
+	input_file = re.sub(' "', '"', input_file)
+	input_file = re.sub('« ', '«', input_file)
+	input_file = re.sub(' »', '»', input_file)
+	input_file = re.sub('#', '', input_file)
+	input_file = re.sub('MT\t', ' ', input_file)
+	input_file = re.sub('T\t', ' ', input_file)
+	input_file = re.sub('ED\t', ' ', input_file)
 
-input_file = re.sub(' \.', '.', input_file)
-input_file = re.sub(' ,', ',', input_file)
-input_file = re.sub(' \?', '?', input_file)
-input_file = re.sub(' !', '!', input_file)
-input_file = re.sub(' :', ':', input_file)
-input_file = re.sub(' ;', ';', input_file)
-input_file = re.sub('" ', '"', input_file)
-input_file = re.sub(' "', '"', input_file)
-input_file = re.sub('« ', '«', input_file)
-input_file = re.sub(' »', '»', input_file)
-input_file = re.sub('#', '', input_file)
-#input_file = re.sub('MT\t', ' ', input_file)
-#input_file = re.sub('T\t', ' ', input_file)
-#input_file = re.sub('ED\t', ' ', input_file)
+	return input_file
 
-cases = input_file.split('\n\n')
-sentences = {}
 
-for elem in cases:
-	elem = elem.split('\n')
-	pe = elem[-1].strip('T\t')
-	sentences[pe] = []
+def write_hyp_and_ref(input_file):
+	cases = input_file.split('\n\n')
 
-	for line in elem:
-		if (line[0] == 'M' or line[0] == 'E') and line != 'ED\t':
-			line = line.strip('MT\t')
-			line = line.strip('ED\t')
-			sentences[pe].append(line)
+	with open('hyp1.txt', 'w', encoding='utf-8') as file1, \
+	open('hyp2.txt', 'w', encoding='utf-8') as file2, \
+	open('ref.txt', 'w', encoding='utf-8') as file3:
+		for elem in cases:
+			elem = elem.split('\n')
+			mt = elem[1]
 
-train_data = {}
+			if elem[2] != ' ':
+				ed = elem[2]
+			else:
+				ed = elem[1]
 
-for key, value in sentences.items():
-	for v in value:
-		with open('hyp.txt', 'w', encoding='utf-8') as file1, open('ref.txt', 'w', encoding='utf-8') as file2:
-			file1.write('%s\n' % (v))
-			file2.write('%s\n' % (key))	
+			pe = elem[-1]
 
-		os.system('perl %s -test hyp.txt -ref ref.txt > eval.txt' % (eval_path))
+			file1.write('%s\n' % (mt.strip(' ')))
+			file2.write('%s\n' % (ed.strip(' ')))
+			file3.write('%s\n' % (pe.strip(' ')))	
 
-		with open('eval.txt', 'r', encoding='utf-8') as file:
-			file = file.read()
 
-		wer = re.search('\(WER\): (.*?) %\n', file).group(1)
-		train_data[v] = wer
+def main():
+	input_file = sys.argv[1]
+	eval_path = sys.argv[2]
 
-with open('output.txt', 'w', encoding='utf-8') as file:
-	for key, value in train_data.items():
-		file.write('%s\t%s\n' % (key, value))
+	input_file = clean_text(input_file)
+	write_hyp_and_ref(input_file)
+
+	os.system('perl %s -test hyp1.txt -ref ref.txt' % (eval_path))
+	os.system('perl %s -test hyp2.txt -ref ref.txt' % (eval_path))
+
+
+if __name__ == '__main__':
+	main()
