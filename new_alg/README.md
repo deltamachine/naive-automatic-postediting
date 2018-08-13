@@ -7,6 +7,7 @@ This is a step-by-step guide for extracting postedits and using it for improving
 ### 0. Prerequisites
 
 While working with this toolbox, you might need to install:
+
 a) Apertium core, bel-rus and rus-ukr language pairs.
 
 b) such Python packages as: nltk, streamparser, ufal.udpipe, pymystem3.
@@ -33,6 +34,8 @@ new_learn_postedits_algorithm.py train.source train.mt train.target source_lang 
 ```
 
 *context_window* parameter - number of words around the word which should be postedited.
+
+Output example for Belarusian - Russian (context window = 4): https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-postedits.txt
 
 
 ##### Example
@@ -61,6 +64,12 @@ extract_types.py postedits.txt lang_pair
 python3 extract_types.py bel-rus_postedits.txt bel-rus
 ```
 
+Output example for Belarusian - Russian:
+
+* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-bidix_entries.txt
+* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-grammar_entries.txt
+* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-other_entries.txt
+
 ### 4. Cleaning
 
 The extracting postedits algorithm is not perfect and extracts a lot of garbage along with potentially good triplets. This script filters most of the garbage out.
@@ -78,6 +87,12 @@ clean_postedits.py postedits.txt source_lang target_lang path_to_lang_pair
 ```
 python3 clean_postedits.py bel-rus_bidix_entries.txt bel rus /home/anna/apertium/apertium-bel-rus
 ```
+
+Output example for Belarusian - Russian:
+
+* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-bidix_entries.txt
+* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-grammar_entries.txt
+* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-other_entries.txt
 
 ### 5. Inserting operations into a language pair: dictionary approach
 
