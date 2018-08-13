@@ -2,16 +2,29 @@
 
 More information about this project can be found here: http://wiki.apertium.org/wiki/Automatic_postediting_at_GSoC_2018
 
+This is a step-by-step guide for extracting postedits and using it for improving an Apertium language pair.
+
 ### 0. Prerequisites
 
 While working with this toolbox, you might need to install:
 a) Apertium core, bel-rus and rus-ukr language pairs.
-b) such Python packages as: nltk, streamparser, ufal.udpipe, pymystem3, numpy, pandas, sklearn.
+
+b) such Python packages as: nltk, streamparser, ufal.udpipe, pymystem3.
+
 c) Perl and apertium-eval-translator (http://wiki.apertium.org/wiki/Apertium-eval-translator)
 
-### 1. Algorithm for operations extraction
+### 1. Data
+
+You can take data for training and testing in following folders:
+
+* Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/data/be (for training: *train.bel, train.mt.rus, train.rus*, for testing: *test.bel, test.mt.rus, test.rus*)
+* Russian - Ukranian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/data/be (for training: *train.ru, train.mt.uk, train.uk*, for testing: *test.ru, test.mt.uk, test.uk*)
+
+### 2. Algorithm for operations extraction
 
 The rationale for this algorithm described in *rationale.md*
+
+Run this script on your train data to extract postedits.
 
 ##### Usage
 
@@ -28,11 +41,13 @@ new_learn_postedits_algorithm.py train.source train.mt train.target source_lang 
 python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus /home/anna/apertium-bel-rus 2
 ```
 
-### 2. Classifying postedits
+### 3. Classifying postedits
 
 A script for classifying extracted postedits indentifies three types of operations: potential monodix/bidix entries 
 (when a pair doesn't have a translation for a given word), grammar mistakes (when Apertium chooses incorrect form of 
 translated word) and other mistakes (it can be, for example, a potential lexical selection rule).
+
+This script takes file which was generated on a previous step and generates three output files: one with "potential dictionary entries", one with "grammar mistakes" and one with "other types of mistakes". 
 
 ##### Usage
 
@@ -46,10 +61,11 @@ extract_types.py postedits.txt lang_pair
 python3 extract_types.py bel-rus_postedits.txt bel-rus
 ```
 
-### 3. Cleaning
+### 4. Cleaning
 
-The extracting postedits algorithm is not perfect and extracts a lot of garbage along with potentially good triplets. This script
-filters most of the garbage out.
+The extracting postedits algorithm is not perfect and extracts a lot of garbage along with potentially good triplets. This script filters most of the garbage out.
+
+It may take one of the files which were generated on previous step.
 
 ##### Usage
 
@@ -63,11 +79,13 @@ clean_postedits.py postedits.txt source_lang target_lang path_to_lang_pair
 python3 clean_postedits.py bel-rus_bidix_entries.txt bel rus /home/anna/apertium/apertium-bel-rus
 ```
 
-### 4. Inserting operations into a language pair: dictionary approach
+### 5. Inserting operations into a language pair: dictionary approach
 
 How to create monodix/bidix entries:
 
-a) Run *create_entries_table.py*
+a) Run *create_entries_table.py* on a file with cleaned bidix postedits.
+
+NB: files *ud_tags.txt* and *mystem_tags.txt* should be in the same folder as the script.
 
 ```
 create_entries_table.py bidix_postedits.txt source_lang target_lang ud_bin_path ud_model_path
@@ -80,9 +98,9 @@ python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/udpipe/s
 
 ```
 
-b) After that, the created table should be manually checked: UDPipe/Mystem not always determine a correct/lemma for a word.
+b) After that, the created table should be manually checked: UDPipe/Mystem not always determine a correct lemma/tag for a word. Edit lemmas and tags if they are wrong.
 
-c) Run *check_entries.py* on the table.
+c) Run *check_entries.py* on the table. This script will look for every lemma in monolingual dictionaries and write 'True' (if lemma was found and it shouldn't be added in a monolingual dictionary) and 'False' (if lemma wasn't found) near every word in the table.
 
 
 ```
@@ -96,10 +114,9 @@ python3 *check_entries.py* bel rus /home/anna/apertium-bel/apertium-bel.bel.dix 
 
 ```
 
-d) Manually edit the table: add a stem and a paradigm for every word, which was not found in dictionaries.
+d) Manually edit the table: add a stem and a paradigm for every word, which was not found in dictionaries. If this is a 'True' lemma, just write 'none' instead stem and paradigm.
 
 e) Run *add_new_entries.py* on the edited table.
-
 
 ```
 add_new_entries.py table.txt source_path target_path pair_path source_lang target_lang
@@ -112,9 +129,9 @@ python3 add_new_entries.py bel-rus_table.txt /home/anna/apertium-bel /home/anna/
 
 ```
 
-### 5. Inserting operations into a language pair: separate module approach (under development)
+### 6. Inserting operations into a language pair: separate module approach (under development)
 
-How to apply postedits to a test file:
+How to apply postedits: run *new_apply_postedits.py* on your test data.
 
 ##### Usage
 
