@@ -16,15 +16,16 @@ def find_lemma(word, dict_path):
 
 
 def main():
-	source_lang = sys.argv[1]
-	target_lang = sys.argv[2]
-	source_dict_path = sys.argv[3]
-	target_dict_path = sys.argv[4]
+	input_file = sys.argv[1]
+	source_lang = sys.argv[2]
+	target_lang = sys.argv[3]
+	source_dict_path = sys.argv[4]
+	target_dict_path = sys.argv[5]
 
-	with open('%s-%s_table.txt' % (source_lang, target_lang), 'r', encoding='utf-8') as file:
+	with open(input_file, 'r', encoding='utf-8') as file:
 		entries = list(set(file.read().strip('\n').split('\n')))
 
-	with open('%s-%s_full_table.txt' % (source_lang, target_lang), 'w', encoding='utf-8') as file:
+	with open('%s-%s_table3.txt' % (source_lang, target_lang), 'w', encoding='utf-8') as file:
 		for line in entries:
 			line = line.split('\t')
 			source_found = find_lemma(line[0], source_dict_path)

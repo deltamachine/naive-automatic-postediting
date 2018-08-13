@@ -136,7 +136,7 @@ def main():
 	source_lemmas, source_tags = write_table(source_lang)
 	target_lemmas, target_tags = write_table(target_lang)
 
-	with open('%s-%s_table.txt' % (source_lang, target_lang), 'w', encoding='utf-8') as file:
+	with open('%s-%s_table1.txt' % (source_lang, target_lang), 'w', encoding='utf-8') as file:
 		for i in range(len(source_lemmas)):
 			 file.write('%s\t%s\t%s\t%s\n' % (source_lemmas[i], source_tags[i], target_lemmas[i], target_tags[i]))
 
