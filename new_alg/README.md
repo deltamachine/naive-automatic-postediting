@@ -108,6 +108,8 @@ NB: files *ud_tags.txt* and *mystem_tags.txt* should be in the same folder as th
 create_entries_table.py bidix_postedits.txt source_lang target_lang ud_bin_path ud_model_path
 ```
 
+Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table1.txt
+
 ##### Example
 
 ```
@@ -117,7 +119,9 @@ python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/udpipe/s
 
 b) After that, the created table should be manually checked: UDPipe/Mystem not always determine a correct lemma/tag for a word. Edit lemmas and tags if they are wrong.
 
-c) Run *check_entries.py* on the table. This script will look for every lemma in monolingual dictionaries and write 'True' (if lemma was found and it shouldn't be added in a monolingual dictionary) and 'False' (if lemma wasn't found) near every word in the table.
+Example of manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table2.txt
+
+c) Run *check_entries.py* on the manually edited table. This script will look for every lemma in monolingual dictionaries and write 'True' (if lemma was found and it shouldn't be added in a monolingual dictionary) and 'False' (if lemma wasn't found) near every word in the table.
 
 
 ```
@@ -127,11 +131,15 @@ check_entries.py source_lang target_lang source_dict_path target_dict_path
 ##### Example
 
 ```
-python3 *check_entries.py* bel rus /home/anna/apertium-bel/apertium-bel.bel.dix /home/anna/apertium-rus/apertium-rus.rus.dix
+python3 check_entries.py bel rus /home/anna/apertium-bel/apertium-bel.bel.dix /home/anna/apertium-rus/apertium-rus.rus.dix
 
 ```
 
+Output example: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table3.txt
+
 d) Manually edit the table: add a stem and a paradigm for every word, which was not found in dictionaries. If this is a 'True' lemma, just write 'none' instead stem and paradigm.
+
+Example of the manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table4.txt
 
 e) Run *add_new_entries.py* on the edited table.
 
@@ -162,6 +170,8 @@ new_apply_postedits.py source_corpus.txt mt_corpus.txt target_corpus.txt postedi
 ```
 python3 new_apply_postedits.py test.bel test.mt.rus test.rus bel-rus_bidix_entries.txt bel rus /home/anna/apertium/apertium-bel-rus
 ```
+
+Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_corrected.txt
 
 How to check WER (run this on the file which was created on the previous step):
 
