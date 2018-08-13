@@ -10,9 +10,11 @@ While working with this toolbox, you might need to install:
 
 a) Apertium core, bel-rus and rus-ukr language pairs.
 
-b) such Python packages as: nltk, streamparser, ufal.udpipe, pymystem3.
+b) such Python packages as: nltk, streamparser, pymystem3.
 
 c) Perl and apertium-eval-translator (http://wiki.apertium.org/wiki/Apertium-eval-translator)
+
+d) UDPipe + models for Belarusian and Ukranian
 
 ### 1. Data
 
@@ -147,6 +149,7 @@ python3 add_new_entries.py bel-rus_table.txt /home/anna/apertium-bel /home/anna/
 ### 6. Inserting operations into a language pair: separate module approach (under development)
 
 How to apply postedits: run *new_apply_postedits.py* on your test data.
+
 
 ##### Usage
 
