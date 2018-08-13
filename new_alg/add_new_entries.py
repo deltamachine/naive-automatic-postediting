@@ -26,10 +26,10 @@ def compile_dicts(source_path, target_path, bidix_path, source_lang, target_lang
 	os.system('lt-comp rl %s/apertium-%s.%s.dix %s-%s.autogen.bin' % (target_path, target_lang, target_lang, target_lang, source_lang))
 
 	os.system('lt-comp rl %s/apertium-%s.%s.dix %s-%s.autogen.bin' % (source_path, source_lang, source_lang, source_lang, target_lang))
-	os.system('lt-comp lr %s/apertium-%s/apertium-%s.%s.dix %s-%s.automorf.bin' % (target_path, target_lang, target_lang, target_lang, source_lang))
+	os.system('lt-comp lr %s/apertium-%s.%s.dix %s-%s.automorf.bin' % (target_path, target_lang, target_lang, target_lang, source_lang))
 
-	os.system('lt-comp lr apertium-%s-%s.%s-%s.dix %s-%s.autobil.bin' % (source_path, target_lang, source_lang, target_lang, source_lang, target_lang))
-	os.system('lt-comp rl apertium-%s-%s.%s-%s.dix %s-%s.autobil.bin' % (source_path, target_lang, source_lang, target_lang, target_lang, source_lang))
+	os.system('lt-comp lr apertium-%s-%s.%s-%s.dix %s-%s.autobil.bin' % (source_lang, target_lang, source_lang, target_lang, source_lang, target_lang))
+	os.system('lt-comp rl apertium-%s-%s.%s-%s.dix %s-%s.autobil.bin' % (source_lang, target_lang, source_lang, target_lang, target_lang, source_lang))
 
 
 def create_entries(input_file):
