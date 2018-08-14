@@ -10,11 +10,11 @@ While working with this toolbox, you might need to install:
 
 a) Apertium core, bel-rus and rus-ukr language pairs.
 
-b) such Python packages as: nltk, streamparser, pymystem3.
+b) such Python packages as: nltk, apertium-streamparser, pymystem3.
 
-c) Perl and apertium-eval-translator (http://wiki.apertium.org/wiki/Apertium-eval-translator)
+c) Perl and apertium-eval-translator (you can download it using this link: https://sourceforge.net/projects/apertium/files/apertium-eval-translator/1.2/apertium-eval-translator-1.2.1.tar.gz/download).
 
-d) UDPipe + models for Belarusian and Ukranian
+d) UDPipe + models for Belarusian and Ukranian.
 
 ### 1. Data
 
