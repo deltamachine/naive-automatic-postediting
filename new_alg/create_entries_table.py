@@ -12,7 +12,8 @@ parser.add_argument('input_file', help='File with bidix postedits')
 parser.add_argument('s_lang', help='Source language')
 parser.add_argument('t_lang', help='Target language')
 parser.add_argument('ud_bin', help='Path to UDPipe binary file')
-parser.add_argument('ud_model', help='Path to UDPipe model file')
+parser.add_argument('source_ud_model', help='Path to source language sUDPipe model file')
+parser.add_argument('target_ud_model', help='Path to target language UDPipe model file')
 
 args = parser.parse_args()
 
@@ -138,15 +139,16 @@ def main():
 	source_lang = args.s_lang
 	target_lang = args.t_lang
 	ud_bin = args.ud_bin
-	ud_model = args.ud_model
+	source_ud_model = args.source_ud_model
+	target_ud_model = args.target_ud_model
 
 	source, target = split_words(input_file)
 
-	for s, l in zip([source, target], [source_lang, target_lang]):
+	for s, l, u in zip([source, target], [source_lang, target_lang], [source_ud_model, target_ud_model]):
 		if l == 'rus':
 			process_mystem(s, l)
 		else:
-			process_udpipe(s, l, ud_bin, ud_model)
+			process_udpipe(s, l, ud_bin, u)
 
 	extract_tags(source_lang)
 	extract_tags(target_lang)
