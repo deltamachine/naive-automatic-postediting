@@ -255,6 +255,8 @@ def apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged,
 							else:
 								edits[elem] = [operation]
 
+					
+
 				b = product(*list(edits.values()))
 				variants = []
 				checked = []
