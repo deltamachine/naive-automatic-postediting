@@ -37,13 +37,13 @@ new_learn_postedits_algorithm.py train.source train.mt train.target source_lang 
 
 *context_window* parameter - number of words around the word which should be postedited.
 
-Output example for Belarusian - Russian (context window = 4): https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-postedits.txt
+Output example for Belarusian - Russian (context window = 1): https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-postedits.txt
 
 
 ##### Example
 
 ```
-python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus /home/anna/apertium-bel-rus 2
+python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus /home/anna/apertium-bel-rus 1
 ```
 
 ### 3. Classifying postedits
