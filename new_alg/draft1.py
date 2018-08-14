@@ -5,7 +5,7 @@ from collections import Counter
 from pymystem3 import Mystem
 
 
-def process_mystem(words):
+"""def process_mystem(words):
 	m = Mystem()
 
 	words = ' '.join(list(words.keys()))
@@ -29,7 +29,7 @@ def process_mystem(words):
 	
 
 def distance(a, b):
-	"""Calculates the Levenshtein distance between string a and string b."""
+	Calculates the Levenshtein distance between string a and string b.
 
 	n, m = len(a), len(b)
 
@@ -69,7 +69,8 @@ def process_levenshtein(old_words):
 			if percent1 >= 40 or percent2 >= 40:
 				info[words[i]].append([words[j], old_words[words[j]]])
 
-	return info
+	return info"""
+
 
 other_entries = sys.argv[1]
 postedits = sys.argv[2]
@@ -106,14 +107,15 @@ for e in entries:
 			mt = tokenizer(line[1])
 			t = tokenizer(line[2])
 
-			if e[0] in s and e[1] in mt and e[2] in t:
+			if mt[0] == t[0] and mt[2] == t[2] and e[0] in s and e[1] in mt and e[2] in t:
 				context[tuple(e)][0] += s
 				context[tuple(e)][1] += mt
+
 		except:
 			pass
 
 
-for key, value in context.items():
+"""for key, value in context.items():
 	value[0] = Counter(value[0])
 	del value[0][key[0]]
 	del value[0][',']
@@ -127,6 +129,8 @@ for key, value in context.items():
 	s_info = process_levenshtein(value[0])
 	mt_info = process_mystem(value[1])
 	print(s_info, '\n\n')
-	print(mt_info, '\n\n')
+	print(mt_info, '\n\n')"""
+
+print(context)
 
 
