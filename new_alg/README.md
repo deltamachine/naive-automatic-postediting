@@ -103,6 +103,7 @@ How to create monodix/bidix entries:
 a) Run *create_entries_table.py* on a file with cleaned bidix postedits.
 
 NB: files *ud_tags.txt* and *mystem_tags.txt* should be in the same folder as the script.
+
 NB2: if your source/target language is Russian, type 'mystem' instead of source_ud_model_path/target_ud_model_path
 
 ```
