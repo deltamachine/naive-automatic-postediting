@@ -1,6 +1,24 @@
 import os
-import sys
+import argparse
 from pymystem3 import Mystem
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='A script for creating table with potentional dictionary entries')
+parser.add_argument('input_file', help='File with bidix postedits')
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+parser.add_argument('ud_bin', help='Path to UDPipe binary file')
+parser.add_argument('ud_model', help='Path to UDPipe model file')
+
+args = parser.parse_args()
+
+"""
+===================== Main code section =================================
+"""
 
 
 def split_words(input_file):
@@ -116,11 +134,11 @@ def write_table(lang):
 
 
 def main():
-	input_file = sys.argv[1]
-	source_lang = sys.argv[2]
-	target_lang = sys.argv[3]
-	ud_bin = sys.argv[4]
-	ud_model = sys.argv[5]
+	input_file = args.input_file
+	source_lang = args.s_lang
+	target_lang = args.t_lang
+	ud_bin = args.ud_bin
+	ud_model = args.ud_model
 
 	source, target = split_words(input_file)
 

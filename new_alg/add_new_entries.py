@@ -1,6 +1,25 @@
 import re
 import os
-import sys
+import argparse
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='A script for creating monodix/bidix entries and adding them to dictionary')
+parser.add_argument('input_file', help='File with a table, created by check_entries.py and manually edited')
+parser.add_argument('source_path', help='Path to source language folder, e.g. /home/apertium-bel')
+parser.add_argument('target_path', help='Path to target language folder, e.g. /home/apertium-rus')
+parser.add_argument('bidix_path', help='Path to language pair folder, e.g. /home/apertium-bel-rus')
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+
+args = parser.parse_args()
+
+"""
+===================== Main code section =================================
+"""
 
 
 def add_to_dict(dict_path, entries, prefix):
@@ -68,12 +87,12 @@ def create_entries(input_file, source_lang, target_lang):
 
 
 def main():
-	input_file = sys.argv[1]
-	source_path = sys.argv[2]
-	target_path = sys.argv[3]
-	bidix_path = sys.argv[4]
-	source_lang = sys.argv[5]
-	target_lang = sys.argv[6]
+	input_file = args.input_file
+	source_path = args.source_path
+	target_path = args.target_path
+	bidix_path = args.bidix_path
+	source_lang = args.s_lang
+	target_lang = args.t_lang
 
 	source_entries, target_entries, bidix_entries = create_entries(input_file, source_lang, target_lang)
 

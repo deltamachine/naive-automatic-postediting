@@ -1,9 +1,30 @@
 import re
-import sys
+import argparse
 import pipes
 from itertools import product
 from streamparser import parse
 from nltk.tokenize import word_tokenize as tokenizer
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='Algorithm for applying extracted postedits to a test file')
+parser.add_argument('source_file', help='Source test data')
+parser.add_argument('mt_file', help='Machine-translated test data')
+parser.add_argument('target_file', help='Target (postedited) test data') 
+parser.add_argument('postedits', help='File with postedits')
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+parser.add_argument('path', help='Path to Apertium language pair')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def tag_corpus(input_file, output_file, s_lang, t_lang, path, data_type):
@@ -247,13 +268,13 @@ def apply_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged,
 
 
 def main():
-	source_file = sys.argv[1]
-	mt_file = sys.argv[2]
-	target_file = sys.argv[3]
-	postedits = sys.argv[4]
-	s_lang = sys.argv[5]
-	t_lang = sys.argv[6]
-	path = sys.argv[7]
+	source_file = args.source_file
+	mt_file = args.mt_file
+	target_file = args.target_file
+	postedits = args.postedits
+	s_lang = args.s_lang
+	t_lang = args.t_lang
+	path = args.path
 
 	with open(postedits, 'r', encoding='utf-8') as file:
 		file = file.read().strip('\n').split('\n')

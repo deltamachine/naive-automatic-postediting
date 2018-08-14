@@ -1,5 +1,22 @@
-import sys
+import argparse
 from collections import Counter
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='Algorithm for classifying extracted postedits')
+parser.add_argument('postedits', help='File with extracted postedits')
+parser.add_argument('prefix', help='Prefix for language pair, e.g. bel-rus')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
+
 
 
 def distance(a, b):
@@ -136,8 +153,8 @@ def find_bidix(postedits, prefix):
 
 
 def main():
-	postedits = sys.argv[1]
-	prefix = sys.argv[2]
+	postedits = args.postedits
+	prefix = args.prefix
 
 	with open(postedits, 'r', encoding='utf-8') as file:
 		postedits = file.read().strip('\n').split('\n')

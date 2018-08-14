@@ -1,5 +1,23 @@
 import re
-import sys
+import argparse
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='A helper script for checking, if word is in a dictionary')
+parser.add_argument('input_file', help='File with a table, created by create_entries_table.py')
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+parser.add_argument('source_dict_path', help='Path to source monolingual dictionary, e.g. apertium-bel.bel.dix')
+parser.add_argument('target_dict_path', help='Path to target monolingual dictionary, e.g. apertium-rus.rus.dix')
+
+args = parser.parse_args()
+
+"""
+===================== Main code section =================================
+"""
 
 
 def find_lemma(word, dict_path):
@@ -16,11 +34,11 @@ def find_lemma(word, dict_path):
 
 
 def main():
-	input_file = sys.argv[1]
-	source_lang = sys.argv[2]
-	target_lang = sys.argv[3]
-	source_dict_path = sys.argv[4]
-	target_dict_path = sys.argv[5]
+	input_file = args.input_file
+	source_lang = args.s_lang
+	target_lang = args.t_lang
+	source_dict_path = args.source_dict_path
+	target_dict_path = args.target_dict_path
 
 	with open(input_file, 'r', encoding='utf-8') as file:
 		entries = list(set(file.read().strip('\n').split('\n')))

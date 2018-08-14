@@ -1,7 +1,25 @@
 import re
-import sys
+import argparse
 import pipes
 from streamparser import parse
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='A script for cleaning extracted postedits')
+parser.add_argument('input_file', help='File with postedits') 
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+parser.add_argument('path', help='Path to Apertium language pair')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def distance(a, b):
@@ -146,10 +164,10 @@ def clean_trash(orig_source, orig_mt, orig_target, freqs, s_lang, t_lang, input_
 			counter += 1
 
 def main():
-	input_file = sys.argv[1]
-	s_lang = sys.argv[2]
-	t_lang = sys.argv[3]
-	path = sys.argv[4]
+	input_file = args.input_file
+	s_lang = args.s_lang
+	t_lang = args.t_lang
+	path = args.path
 
 	with open(input_file, 'r', encoding='utf-8') as file:
 		entries = file.read().strip('\n').split('\n')

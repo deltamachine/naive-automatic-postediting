@@ -1,6 +1,22 @@
 import re
 import os
-import sys
+import argparse
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='A script for checking WER')
+parser.add_argument('input_file', help='Input file, which was created by new_apply_postedits.py')
+parser.add_argument('eval_path', help='Path to apertium-eval-translator Perl script')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def clean_text(input_file):
@@ -48,8 +64,8 @@ def write_hyp_and_ref(input_file):
 
 
 def main():
-	input_file = sys.argv[1]
-	eval_path = sys.argv[2]
+	input_file = args.input_file
+	eval_path = args.eval_path
 
 	input_file = clean_text(input_file)
 	write_hyp_and_ref(input_file)

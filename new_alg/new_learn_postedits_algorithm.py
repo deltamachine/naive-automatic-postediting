@@ -1,8 +1,29 @@
 import re
-import sys
 import pipes
+import argparse
 from streamparser import parse
 from nltk.tokenize import word_tokenize as tokenizer
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='Algorithm for postedits extraction')
+parser.add_argument('source_file', help='Source train data')
+parser.add_argument('mt_file', help='Machine-translated train data')
+parser.add_argument('target_file', help='Target (postedited) train data') 
+parser.add_argument('s_lang', help='Source language')
+parser.add_argument('t_lang', help='Target language')
+parser.add_argument('path', help='Path to Apertium language pair')
+parser.add_argument('cont_wind', help='Context window: number of words around the word which should be postedited')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def tag_corpus(input_file, output_file, s_lang, t_lang, path, data_type):
@@ -247,13 +268,13 @@ def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, 
 
 
 def main():
-	source_file = sys.argv[1]
-	mt_file = sys.argv[2]
-	target_file = sys.argv[3]
-	s_lang = sys.argv[4]
-	t_lang = sys.argv[5]
-	path = sys.argv[6]
-	cont_wind = int(sys.argv[7])
+	source_file = args.source_file
+	mt_file = args.mt_file
+	target_file = args.target_file
+	s_lang = args.s_lang
+	t_lang = args.t_lang
+	path = args.path
+	cont_wind = int(args.cont_wind)
 
 	tag_corpus(source_file, source_file + '.tagged', s_lang, t_lang, path, 'source')
 	tag_corpus(mt_file, mt_file + '.tagged', s_lang, t_lang, path, 'mt')
