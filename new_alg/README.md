@@ -103,9 +103,10 @@ How to create monodix/bidix entries:
 a) Run *create_entries_table.py* on a file with cleaned bidix postedits.
 
 NB: files *ud_tags.txt* and *mystem_tags.txt* should be in the same folder as the script.
+NB2: if your source/target language is Russian, type 'mystem' instead of source_ud_model_path/target_ud_model_path
 
 ```
-create_entries_table.py bidix_postedits.txt source_lang target_lang ud_bin_path ud_model_path
+create_entries_table.py bidix_postedits.txt source_lang target_lang ud_bin_path source_ud_model_path target_ud_model_path
 ```
 
 Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table1.txt
@@ -113,7 +114,7 @@ Output example for Belarusian - Russian: https://github.com/deltamachine/naive-a
 ##### Example
 
 ```
-python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/udpipe/src/udpipe /home/udpipe/belarusian-ud-2.0-170801.udpipe
+python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/udpipe/src/udpipe /home/udpipe/belarusian-ud-2.0-170801.udpipe mystem
 
 ```
 
