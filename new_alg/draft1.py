@@ -108,8 +108,8 @@ for e in entries:
 			t = tokenizer(line[2])
 
 			if mt[0] == t[0] and mt[2] == t[2] and e[0] in s and e[1] in mt and e[2] in t:
-				context[tuple(e)][0] += s
-				context[tuple(e)][1] += mt
+				context[tuple(e)][0].append([s[0], s[2]])
+				context[tuple(e)][1].append([mt[0], mt[2]])
 
 		except:
 			pass
