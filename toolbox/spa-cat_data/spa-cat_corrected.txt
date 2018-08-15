@@ -1,0 +1,1390 @@
+S	esta serpiente no es venenosa.
+MT	aquesta serp no és verinosa.
+ED	
+T	aquesta serp no és verinosa.
+
+S	ella salió sin decir ni una palabra.
+MT	ella va sortir sense dir ni una paraula.
+ED	
+T	ella va sortir sense dir ni una paraula
+
+S	lo contrato como programador.
+MT	ho contracto com a programador.
+ED	
+T	el contracto com a programador.
+
+S	tom no pensó que podría confiar en mary.
+MT	tom no va pensar que podria confiar en mary.
+ED	
+T	tom no va pensar que podia confiar en mary.
+
+S	a ella le gusta la música más que otra cosa.
+MT	a ella li agrada la música més que una altra cosa.
+ED	
+T	a ella li agrada la música més que altre cosa.
+
+S	él trabaja como representante sindical en ese comité.
+MT	ell treballa com a representant sindical en aquest comitè.
+ED	
+T	ell treballa com a representant sindical en aquell comitè.
+
+S	betty fue la primera chica en venir a la fiesta.
+MT	betty va ser la primera noia a venir a la festa.
+ED	
+T	na betty va ser la primera al·lota en venir a la festa.
+
+S	tú eres más alto que ella.
+MT	tu ets més alt que ella.
+ED	
+T	tu ets mes alt que ella.
+
+S	su mujer está en el hospital, resultó herida en un accidente automovilístico.
+MT	la seva dona està a l'hospital, va resultar ferida en un accident automobilístic.
+ED	
+T	la seva dona és a l'hospital, va ser ferida en un accident automobilístic.
+
+S	hace dos años que estudio chino.
+MT	fa dos anys que estudi xinès.
+ED	
+T	fa dos anys que estudio xinès.
+
+S	¿por qué no le pedimos su consejo?
+MT	per què no li demanem el seu consell?
+ED	
+T	per què no demanam el seu consell?
+
+S	es mi tío.
+MT	és el meu oncle.
+ED	
+T	és el meu oncle.
+
+S	ellos no son mis verdaderos padres.
+MT	ells no són els meus veritables pares.
+ED	
+T	ells no són els meus vertaders pares.
+
+S	aparcó el coche en una plaza vacía.
+MT	va aparcar el cotxe en una plaça buida.
+ED	
+T	va aparcar el cotxe en una plaça buida.
+
+S	se pronostica un 4% de inflación para este año.
+MT	es pronostica un 4 % d'inflació per aquest any.
+ED	
+T	es pronostica un 4% d'inflacció per enguany.
+
+S	ella leyó el poema en voz alta.
+MT	ella va llegir el poema en veu alta.
+ED	
+T	ella va llegir el poema en veu alta.
+
+S	de hecho, ¿habéis ido ya a hokkaido?
+MT	de fet, heu anat ja a *hokkaido?
+ED	
+T	de fet, heu anat ja a hokkaido?
+
+S	no lo ha hecho aposta.
+MT	no ho ha fet a posta.
+ED	
+T	no ho ha fet a propòsit.
+
+S	esperamos visita esta tarde.
+MT	esperem visita aquesta tarda.
+ED	
+T	tenim una visita aquesta tarda.
+
+S	todo lo que dice es cierto.
+MT	tot el que diu és cert.
+ED	
+T	tot el que diu és cert.
+
+S	los servicios especiales incluyen un chófer personal para cada huésped.
+MT	els serveis especials inclouen un xofer personal per a cada hoste.
+ED	
+T	els serveis especials inclouen un xofer personal per a cada hoste.
+
+S	simplemente vagar sin rumbo puede ser una buena manera de viajar.
+MT	simplement vagar sense rumb pot ser una bona manera de viatjar.
+ED	
+T	simplement vagant arreu pot ser una bona manera de viatjar.
+
+S	no me quiero arriesgar a realizar esta tarea yo mismo.
+MT	no em vull arriscar a realitzar aquesta tasca jo mateix.
+ED	
+T	no em vull arriscar a realitzar aquesta tasca jo mateix.
+
+S	le dijiste que habías terminado el trabajo hacía días.
+MT	li vas dir que havies acabat el treball feia dies.
+ED	
+T	li vas dir que havies enllestit la feina feia tres dies.
+
+S	jim no vendrá hoy.
+MT	jim no vindrà avui.
+ED	
+T	en jim no vindrà avui.
+
+S	copia esta hoja en tu libreta.
+MT	còpia aquesta fulla en la teva llibreta.
+ED	
+T	copia aquest full a la teva llibreta.
+
+S	jamás había oído tal cosa.
+MT	mai havia sentit tal cosa.
+ED	
+T	mai havía sentit tal cosa.
+
+S	mal de muchos, consuelo de tontos.
+MT	malament de molts, consol de ximples.
+ED	
+T	mal de molts, conhort de tontos.
+
+S	la familia es el núcleo de la sociedad.
+MT	la família és el nucli de la societat.
+ED	
+T	la familia és el nucli de la societat.
+
+S	solo digo la verdad.
+MT	només dic la veritat.
+ED	
+T	només dic la veritat.
+
+S	el fútbol es un juego antiguo.
+MT	el futbol és un joc antic.
+ED	
+T	el futbol és un joc antic.
+
+S	todavía no he terminado de desayunar.
+MT	encara no he acabat de desdejunar.
+ED	
+T	encara no he acabat d'esmorzar.
+
+S	su nueva novela es realmente interesante en comparación con la última.
+MT	la seva nova novel·la és realment interessant en comparació amb l'última.
+ED	
+T	la seva nova novel·la és realment interessant en comparació amb l'última.
+
+S	doraemon sonríe a menudo.
+MT	doraemon somriu sovint.
+ED	
+T	doraemon somriu sovint.
+
+S	suba la calle.
+MT	pugi el carrer.
+ED	
+T	carrer amunt.
+
+S	está prohibido pescar en este lago.
+MT	està prohibit pescar en aquest llac.
+ED	
+T	està prohibit pescar en aquest llac.
+
+S	él sale siempre a las siete de casa.
+MT	ell surt sempre a les set de casa.
+ED	
+T	ell surt sempre a les set de casa.
+
+S	a veces damos un paseo en el coche.
+MT	a vegades fem una passejada en el cotxe.
+ED	
+T	a vegades feim un passeig en cotxe.
+
+S	¿por qué no me llamaste ayer por la noche?
+MT	per què no em vas cridar ahir a la nit?
+ED	
+T	per què no em vares cridar ahir a la nit?
+
+S	bill odia a george solo si pat odia a bill.
+MT	bill odia a george només si *pat odia a bill.
+ED	
+T	en bill odia en george només si la pat odia en bill.
+
+S	si te mueves tanto derramarás la leche encima de la mesa.
+MT	si et mous tant vessaràs la llet damunt de la taula.
+ED	
+T	si et bellugues tant vessaràs la llet damunt la taula.
+
+S	espero que él venga.
+MT	espero que ell vingui.
+ED	
+T	espero que vingui.
+
+S	este helado no sabe a fresa.
+MT	aquest gelat no sap a maduixa.
+ED	
+T	aquest gelat no fa gust de maduixa.
+
+S	su casa está lejos de la estación.
+MT	la seva casa està lluny de l'estació.
+ED	
+T	casa seva és lluny de l'estació.
+
+S	he olvidado su nombre.
+MT	he oblidat el seu nom.
+ED	
+T	he oblidat el seu nom.
+
+S	atribuyó su fracaso a la mala suerte.
+MT	va atribuir el seu fracàs a la mala sort.
+ED	
+T	va atribuir el seu fracàs a la mala sort.
+
+S	salid.
+MT	sortiu.
+ED	
+T	surtiu.
+
+S	estoy seguro de que triunfará.
+MT	estic segur que triomfarà.
+ED	
+T	estic segur de que triomfarà.
+
+S	en el jardín hay muchas flores.
+MT	en el jardí hi ha moltes flors.
+ED	
+T	al jardí hi ha moltes flors.
+
+S	¿no eres un poco joven para este puesto?
+MT	no ets una mica jove per a aquest lloc?
+ED	
+T	no ets una mica massa jove per aquesta feina?
+
+S	"hola, ¿quién es?"
+MT	"hola, qui és?"
+ED	
+T	"hola, qui és?"
+
+S	no pude terminar mi almuerzo porque tenía que entrar a trabajar.
+MT	no vaig poder acabar el meu esmorzar perquè havia d'entrar a treballar.
+ED	
+T	no vaig poder acabar de dinar perquè havia d'entrar a treballar.
+
+S	esto es fácil.
+MT	això és fàcil.
+ED	
+T	això és fàcil.
+
+S	hola, me llamo ken saitou.
+MT	hola, em dic *ken *saitou.
+ED	
+T	hola, el meu nom és ken saitou.
+
+S	los ricos a menudo son miserables.
+MT	els rics sovint són miserables.
+ED	
+T	els rics sovint són miserables.
+
+S	por este camino no se puede pasar.
+MT	per aquest camí no es pot passar.
+ED	
+T	per aquest camí no es pot passar.
+
+S	ha escapado un toro en pantalones cortos acusado de hurto.
+MT	ha escapat un toro en pantalons curts acusat de furt.
+ED	
+T	ha fugit un bou en pantalons curts acusat de furt.
+
+S	no he cagado en toda una semana.
+MT	no he cagat en tota una setmana.
+ED	
+T	no he cagat en tota una setmana.
+
+S	no había mucho azúcar en la olla.
+MT	no hi havia molt sucre en l'olla.
+ED	
+T	no hi havía gaire sucre a l'olla.
+
+S	cada uno pagó su parte.
+MT	cadascun va pagar la seva part.
+ED	
+T	cadascú va pagar la seva part.
+
+S	si eres cocinero sabrás hacer buenas comidas.
+MT	si ets cuiner sabràs fer bons menjars.
+ED	
+T	si ets cuiner deus saber fer bons àpats.
+
+S	dos botellas de agua mineral, por favor.
+MT	dues ampolles d'aigua mineral, per favor.
+ED	
+T	dues ampolles d'aigua mineral, si us plau.
+
+S	es posible que vaya allí, pero depende de las circunstancias.
+MT	és possible que vagi allí, però depèn de les circumstàncies.
+ED	
+T	es possible que hi vagi allà, però depèn de les circumstàncies.
+
+S	nunca he volado en avión.
+MT	mai he volat amb avió.
+ED	
+T	mai he volat amb avió.
+
+S	pero los terremotos son todavía tan aterradores como siempre.
+MT	però els terratrèmols són encara tan aterridors com sempre.
+ED	
+T	però els terratrèmols encara són tan esfereïdors com sempre.
+
+S	europa está en crisis.
+MT	europa està en crisi.
+ED	
+T	europa està en crisi.
+
+S	hoy hace mucho frío.
+MT	avui fa molt fred.
+ED	
+T	avui fa molt fred
+
+S	tan pronto como sonó la campana, el profesor entró en el salón de clases.
+MT	tan aviat com va sonar la campana, el professor va entrar en el saló de classes.
+ED	
+T	tan aviat com va sonar la campana, el professor va entrar al saló de classes.
+
+S	he leído muchos tipos de libro.
+MT	he llegit molts tipus de llibre.
+ED	
+T	he llegit molts tipus de llibres.
+
+S	nara es tan antigua como kioto.
+MT	*nara és tan antiga com kyoto.
+ED	
+T	nara és tan antiga com kioto.
+
+S	no sé si él lo habría hecho por mí.
+MT	no sé si ell ho hauria fet per mi.
+ED	
+T	no sé si ell ho hauria fet per mi.
+
+S	te mostraré la ciudad.
+MT	et mostraré la ciutat.
+ED	
+T	et mostraré la ciutat.
+
+S	puedo hablar de cualquier cosa con mi amigo.
+MT	puc parlar de qualsevol cosa amb el meu amic.
+ED	
+T	puc parlar de qualsevol cosa amb el meu amic.
+
+S	si él me gusta es por su sinceridad.
+MT	si ell m'agrada és per la seva sinceritat.
+ED	
+T	si ell m'agrada és per la seva sinceritat.
+
+S	nos fuimos en tren.
+MT	ens vam anar amb tren.
+ED	
+T	ens varem marxar amb tren.
+
+S	este pez no es venenoso.
+MT	aquest peix no és verinós.
+ED	
+T	aquest peix no és verinós.
+
+S	tom puso algo de sal en sus huevos.
+MT	tom va posar una mica de sal en els seus ous.
+ED	
+T	en tom va posar una mica de sal als seus ous.
+
+S	estoy casada.
+MT	estic casada.
+ED	
+T	estic cansada.
+
+S	ellos son artistas.
+MT	ells són artistes.
+ED	
+T	ells són artistes.
+
+S	vuestro perro es muy grande.
+MT	el vostre gos és molt gran.
+ED	
+T	el vostre gos és molt gran.
+
+S	tenemos que aceptar la vida, para bien o para mal.
+MT	hem d'acceptar la vida, per a bé o per a mal.
+ED	
+T	hem d'acceptar la vida, per a bé o per a mal.
+
+S	las bajas temperaturas mantuvieron heladas las cumbres gran parte de la primavera.
+MT	les baixes temperatures van mantenir gelades els cims gran part de la primavera.
+ED	
+T	les baixes temperatures van mantenir gelades els cims gran part de la primavera.
+
+S	éste es el lugar donde nació mi padre.
+MT	aquest és el lloc on va néixer el meu pare.
+ED	
+T	aquest és el lloc on va nèixer el meu pare.
+
+S	el avión llegó puntual a nueva york.
+MT	l'avió va arribar puntual a nova york.
+ED	
+T	l'avió va arribar puntual a nova york.
+
+S	en ambos lados matan a hombres, mujeres y niños.
+MT	en tots dos costats maten a homes, dones i nens.
+ED	
+T	en ambdós costats maten a homes, dones i xiquets.
+
+S	lo voy a hacer, estéis o no de acuerdo.
+MT	ho vaig a fer, estigueu o no d'acord.
+ED	
+T	ho faré, estigueu o no d'acord amb mi.
+
+S	tengo mucho dinero en mi cuenta de ahorro.
+MT	tinc molts diners en el meu compte d'estalvi.
+ED	
+T	tinc molts diners al meu compte d'estalvi.
+
+S	duerme como un bebé.
+MT	dorm com un bebè.
+ED	
+T	dorm com un bebè
+
+S	esta silla es fea.
+MT	aquesta cadira és lletja.
+ED	
+T	aquesta cadira és lletja.
+
+S	él tomó un libro de la estantería.
+MT	ell va prendre un llibre de la prestatgeria.
+ED	
+T	ell va agafar un llibre de la lleixa.
+
+S	puede que no siempre hagamos lo correcto, pero seguro que tampoco estamos totalmente equivocados.
+MT	pot ser que no sempre fem el correcte, però segur que tampoc estem totalment equivocats.
+ED	
+T	potser que no sempre fem lo correcte, però segur que tampoc estem totalment errats.
+
+S	en este edificio no vive nadie.
+MT	en aquest edifici no viu ningú.
+ED	
+T	en aquest edifici no viu ningú.
+
+S	no pasa una semana sin que le escriba a su madre.
+MT	no passa una setmana sense que li escrigui a la seva mare.
+ED	
+T	no passa una setmana que no li escrigui a la seva mare.
+
+S	tenía ambición.
+MT	tenia ambició.
+ED	
+T	tenia ambició.
+
+S	deberías comer más fruta.
+MT	hauries de menjar més fruita.
+ED	
+T	hauries de menjar més fruita.
+
+S	no tengo tiempo para explicar en detalle.
+MT	no tinc temps per explicar detalladament.
+ED	
+T	no tinc temps per explicar-t'ho amb detall.
+
+S	no voy a hablar más francés contigo.
+MT	no vaig a parlar més francès amb tu.
+ED	
+T	no parlaré més francès amb tu.
+
+S	él tiene un perro.
+MT	ell té un gos.
+ED	
+T	ell té un gos.
+
+S	adiós, sayoko.
+MT	adéu, *sayoko.
+ED	adéu , sayoko .
+T	adéu, sayoko.
+
+S	no camines tan rápido.
+MT	no caminis tan ràpid.
+ED	
+T	no caminis tan ràpid.
+
+S	el ejército de napoleón ha avanzado hasta moscú.
+MT	l'exèrcit de napoleó ha avançat fins a moscou.
+ED	
+T	l'exèrcit d'en napoleó ha avançat fins a moscou.
+
+S	no tienes que venir mañana.
+MT	no has de venir demà.
+ED	
+T	no has de venir demà.
+
+S	colón descubrió américa.
+MT	colón va descobrir amèrica.
+ED	
+T	colón va descobrir amèrica.
+
+S	me insistieron para que aprovechara esa oportunidad.
+MT	em van insistir perquè aprofités aquesta oportunitat.
+ED	
+T	em varen insistir per a que aprofitès aquella oportunitat.
+
+S	aprovecha tus vacaciones.
+MT	aprofita les teves vacances.
+ED	
+T	aprofita les vacances.
+
+S	jeff piensa que nunca se va a enamorar.
+MT	jeff pensa que mai es va a enamorar.
+ED	
+T	jeff pensa que ell mai s'enamorarà.
+
+S	ella habla mucho.
+MT	ella parla molt.
+ED	
+T	ella parla molt.
+
+S	maría se parece a su madre.
+MT	maría s'assembla a la seva mare.
+ED	
+T	na maría s'assembla a la seva mare.
+
+S	¿por qué?
+MT	per què?
+ED	
+T	per què?
+
+S	él se está mejorando poco a poco.
+MT	ell s'està millorant a poc a poc.
+ED	
+T	ell s'està millorant poc a poc
+
+S	sobre todo, cuido mi salud.
+MT	sobretot, cuido la meva salut.
+ED	
+T	sobretot, cuido la meva salut.
+
+S	la mujer herida era una turista brasileña.
+MT	la dona ferida era una turista brasilera.
+ED	
+T	la dona ferida era una turista brasilera.
+
+S	todo está perfecto.
+MT	tot està perfecte.
+ED	
+T	tot està perfecte.
+
+S	no tiene ningún sentido intentar solucionar este problema.
+MT	no té cap sentit intentar solucionar aquest problema.
+ED	
+T	no té cap sentit intentar solucionar aquest problema.
+
+S	fue genial. fui a kioto.
+MT	va ser genial. vaig ser a kyoto.
+ED	
+T	va ser genial. vaig anar a kyoto.
+
+S	estoy de vacaciones esta semana.
+MT	estic de vacances aquesta setmana.
+ED	
+T	estic de vacances aquesta setmana.
+
+S	¡buenos días!
+MT	bon dia!
+ED	
+T	bon dia!
+
+S	el gato estuvo enfermo la semana pasada.
+MT	el gat va estar malalt la setmana passada.
+ED	
+T	el gat va estar malalt la setmana passada.
+
+S	mary le contó el secreto a john.
+MT	mary li va explicar el secret a john.
+ED	
+T	la mary va explicar el secret al john.
+
+S	te encontrarás la casa vacía.
+MT	et trobaràs la casa buida.
+ED	
+T	et trobaràs la casa buida.
+
+S	el niño acarició a la niña en el mentón y la besó en la mejilla.
+MT	el nen va acariciar a la nena en el mentó i la va besar en la galta.
+ED	
+T	el nen va acaronar a la nena al front i la va besar a la galta.
+
+S	sin importar lo que él diga, yo no confiaré otra vez en él.
+MT	sense importar el que ell digui, jo no confiaré una altra vegada en ell.
+ED	
+T	és igual el que digui, no tornaré a refiar-me'n.
+
+S	¡buenos días!
+MT	bon dia!
+ED	
+T	bon día!
+
+S	parece que el perro tiene hambre.
+MT	sembla que el gos té gana.
+ED	
+T	el gos sembla tenir gana.
+
+S	mucha gente murió en ese accidente.
+MT	molta gent va morir en aquest accident.
+ED	
+T	molta gent va morir en aquell accident.
+
+S	compre tomates de la comarca.
+MT	compri tomàquets de la comarca.
+ED	
+T	compre tomates de la comarca.
+
+S	ella es de somalia.
+MT	ella és de somàlia.
+ED	
+T	ella és de somàlia.
+
+S	para decir «vivir una vida cómoda», los alemanes dicen «vivir como dios en francia».
+MT	per dir «viure una vida còmoda», els alemanys diuen «viure com déu a frança».
+ED	
+T	per dir "viure una vida còmoda" els alemanys diuen "viure com un déu a frança".
+
+S	mi bicicleta tiene una rueda pinchada.
+MT	la meva bicicleta té una roda punxada.
+ED	
+T	la meva bicicleta té una roda pintxada.
+
+S	tengo dos sobrinos.
+MT	tinc dos nebots.
+ED	
+T	tinc dos nebots.
+
+S	rubén tiene tres hijos.
+MT	rubén té tres fills.
+ED	
+T	en rubén té tres fills.
+
+S	por favor, escoge de manera sensata.
+MT	per favor, escull de manera assenyada.
+ED	
+T	si us plau, escull de forma assenyada.
+
+S	hoy tuvimos un examen de matemáticas.
+MT	avui vam tenir un examen de matemàtiques.
+ED	
+T	avui hem tingut un exàmen de matemàtiques.
+
+S	haré mi tarea después de ver televisión.
+MT	faré la meva tasca després de veure televisió.
+ED	
+T	faré els deures després de veure la televisió.
+
+S	papá miró a mamá con timidez.
+MT	papà va mirar a mamà amb timidesa.
+ED	
+T	el pare va mirar la mare amb timidesa.
+
+S	—¡cinco!— dijo alex.
+MT	—cinc!— va dir alex.
+ED	
+T	cinc! -va dir l'àlex.
+
+S	no puedo cerrar la puerta. he perdido la llave.
+MT	no puc tancar la porta. he perdut la clau.
+ED	
+T	no puc tancar la porta. he perdut la clau.
+
+S	es muy importante descansar lo suficiente.
+MT	és molt important descansar prou.
+ED	
+T	és molt important descansar suficient.
+
+S	supongo que ella tendrá éxito en su negocio.
+MT	suposo que ella tindrà èxit en el seu negoci.
+ED	
+T	suposo que ella tindrà èxit al seu negoci.
+
+S	necesitas estudiar más duro.
+MT	necessites estudiar més dur.
+ED	
+T	necessites estudiar més dur.
+
+S	a tom le pilló su madre masturbándose.
+MT	a tom li va enxampar la seva mare *masturbándose.
+ED	
+T	a en tom, la seva mare el va enganxar masturbant-se.
+
+S	tom se divirtió mucho en la fiesta.
+MT	tom es va divertir molt a la festa.
+ED	
+T	el tom es va divertir molt a la festa.
+
+S	salí corriendo y cogí un taxi.
+MT	vaig sortir corrent i vaig agafar un taxi.
+ED	
+T	vaig arrencar a córrer i vaig agafar un taxi.
+
+S	solo soy un mensajero.
+MT	només sóc un missatger.
+ED	
+T	només sóc un missatger.
+
+S	me encontré con un amigo mío.
+MT	em vaig trobar amb un amic meu.
+ED	
+T	em vaig trobar amb un amic meu.
+
+S	bebo agua porque tengo sed.
+MT	bec aigua perquè tinc set.
+ED	
+T	bec aigua perquè tinc set.
+
+S	el chico que me gusta no me quiere.
+MT	el noi que m'agrada no em vol.
+ED	
+T	el noi que m'agrada no m'estima.
+
+S	los estudiantes anotaron cada palabra que el maestro decía.
+MT	els estudiants van anotar cada paraula que el mestre deia.
+ED	
+T	els estudiants havien anotat cada paraula que deia el mestre.
+
+S	dijo que estaba un tanto cansada.
+MT	va dir que estava una miqueta cansada.
+ED	
+T	va dir que era una mica cansada.
+
+S	esto no tiene nada de divertido.
+MT	això no té gens de divertit.
+ED	
+T	això no té res de divertit.
+
+S	esta casa es mía, no tuya.
+MT	aquesta casa és meva, no teva.
+ED	
+T	aquesta casa és meva no pas teva.
+
+S	el ritual sagrado se llevó a cabo después de haber sido pospuesto en dos ocasiones.
+MT	el ritual sagrat es va dur a terme després d'haver estat posposat en dues ocasions.
+ED	
+T	el ritual sagrat es va dur a terme després d'haver estat posposat en dues ocasions.
+
+S	ella nos dijo que la calle estaba cerrada.
+MT	ella ens va dir que el carrer estava tancat.
+ED	
+T	ella ens va dir que el carrer estava tancat.
+
+S	tú hablas.
+MT	tu parles.
+ED	
+T	tu parles.
+
+S	¿por qué tengo que hacer eso?
+MT	per què haig de fer això?
+ED	
+T	per què he de fer això?
+
+S	tú lo eres todo para mí.
+MT	tu ho ets tot per a mi.
+ED	
+T	tu ets tot per mi.
+
+S	algunos de ellos se encuentran bien, pero no otros.
+MT	alguns d'ells es troben bé, però no uns altres.
+ED	
+T	alguns d'ells es troben bé, però d'altres no.
+
+S	las mujeres de japón parecen pequeñas y delicadas.
+MT	les dones de japó semblen petites i delicades.
+ED	
+T	les dones del japó semblen petites i delicades.
+
+S	la paella de mi abuela está riquísima.
+MT	la paella de la meva àvia està riquíssima.
+ED	
+T	la paella de la meua àvia està boníssima.
+
+S	tienes una buena memoria.
+MT	tens una bona memòria.
+ED	
+T	tens una bona memòria.
+
+S	al fin conseguí el libro que quería.
+MT	a la fi vaig aconseguir el llibre que volia.
+ED	
+T	finalment vaig aconseguir el llibre que volía.
+
+S	john no sabe tocar la guitarra.
+MT	john no sap tocar la guitarra.
+ED	
+T	en john no sap tocar la guitarra.
+
+S	no sé.
+MT	no sé.
+ED	
+T	no ho sé.
+
+S	esta rosa silvestre desprende un aroma dulce.
+MT	aquesta rosa silvestre desprèn una aroma dolça.
+ED	
+T	aquesta rosa silvestre desprén una olor dolça.
+
+S	intentó ampliar su círculo de influencia.
+MT	va intentar ampliar el seu cercle d'influència.
+ED	
+T	intentà d'ampliar la seva esfera d'influència.
+
+S	mi madre salió de casa hace diez minutos.
+MT	la meva mare va sortir de casa fa deu minuts.
+ED	
+T	la meva mare ha sortit de casa fa deu minuts.
+
+S	siempre ha sido así.
+MT	sempre ha estat així.
+ED	
+T	sempre ha sigut així.
+
+S	me pidió que le ayudase.
+MT	em va demanar que li ajudés.
+ED	
+T	em va demanar que l'ajudés.
+
+S	el desierto de china alberga a más personas que japón.
+MT	el desert de xina alberga a més persones que japó.
+ED	
+T	el desert de la xina alberga més persones que el japó.
+
+S	luna es una persona de fiar.
+MT	lluna és una persona de fiar.
+ED	
+T	luna es una persona de fiar.
+
+S	por favor, llame a un taxi para esta dama.
+MT	per favor, cridi a un taxi per a aquesta dama.
+ED	
+T	siusplau, aviseu un taxi per aquesta dama.
+
+S	está ocupado escribiendo una carta.
+MT	està ocupat escrivint una carta.
+ED	
+T	està ocupat escrivint una carta.
+
+S	querría dibujar un árbol.
+MT	voldria dibuixar un arbre.
+ED	
+T	voldria dibuixar un arbre
+
+S	esta guitarra es tan cara que no la puedo comprar.
+MT	aquesta guitarra és tan cara que no la puc comprar.
+ED	
+T	aquesta guitarra és tan cara que no la puc comprar.
+
+S	se acabó el festival.
+MT	es va acabar el festival.
+ED	
+T	es va acabar el festival.
+
+S	tengo un perro de color negro y blanco.
+MT	tinc un gos de color negre i blanc.
+ED	
+T	tinc un gos de color negre i blanc.
+
+S	las circunstancias nos obligaron a posponer la reunión.
+MT	les circumstàncies ens van obligar a posposar la reunió.
+ED	
+T	les circumstàncies ens varen obligar a pospondre la reunió.
+
+S	yo también tengo 17 años.
+MT	jo també tinc 17 anys.
+ED	
+T	jo també tinc 17 anys.
+
+S	hasta mañana.
+MT	fins demà.
+ED	
+T	fins demà.
+
+S	le presté una revista.
+MT	li vaig prestar una revista.
+ED	
+T	li vaig prestar una revista.
+
+S	cuando salgas cierra la puerta, por favor.
+MT	quan surtis tanca la porta, per favor.
+ED	
+T	quan isques tanca la porta, per favor.
+
+S	hasta un cierto punto, el rumor es cierto.
+MT	fins a un cert punt, el rumor és cert.
+ED	
+T	fins a un cert punt, el rumor és cert.
+
+S	tatoeba no es una escuela — ¡es una universidad!
+MT	*tatoeba no és una escola — és una universitat!
+ED	
+T	tatoeba no és una escola — és una universitat!
+
+S	ahora mismo acaba de empezar a nevar.
+MT	ara mateix acaba de començar a nevar.
+ED	
+T	tot just ara acaba de començar a nevar.
+
+S	beber demasiado es malo para la salud.
+MT	beure massa és dolent per a la salut.
+ED	
+T	beure massa és dolent per la salut.
+
+S	descubrió una nueva estrella.
+MT	va descobrir una nova estrella.
+ED	
+T	va descobrir un nou estel.
+
+S	a las nueve no puedo ir.
+MT	a les nou no puc anar.
+ED	
+T	a les nou no puc anar-hi.
+
+S	¿por qué no puedes aceptar las cosas como son?
+MT	per què no pots acceptar les coses com són?
+ED	
+T	per què no pots acceptar les coses tal com són?
+
+S	a pesar de que los tiempos han cambiado, se mantiene en sus ideas revolucionarias.
+MT	a pesar que els temps han canviat, es manté en les seves idees revolucionàries.
+ED	
+T	malgrat que els temps han canviat, manté les seves idees revolucionàries.
+
+S	"¿cuántos años tienes?" - "tengo dieciséis años."
+MT	"quants anys tens?" - "tinc setze anys."
+ED	
+T	"quants anys tens?" "tinc setze anys."
+
+S	él me hizo una pregunta.
+MT	ell em va fer una pregunta.
+ED	
+T	ell em va fer una pregunta.
+
+S	él me ha dicho que lo haga, así que lo he hecho.
+MT	ell m'ha dit que ho faci, així que ho he fet.
+ED	
+T	ell m'ha dit que ho fes, així que ho he fet.
+
+S	no puedes decir "no".
+MT	no pots dir "no".
+ED	
+T	no pots dir "no".
+
+S	estás muy elegante.
+MT	estàs molt elegant.
+ED	
+T	estàs molt elegant.
+
+S	estoy cansado de comer comida rápida.
+MT	estic cansat de menjar menjar ràpid.
+ED	
+T	estic cansar de menjar menjar ràpid.
+
+S	mañana cumpliré 28 años.
+MT	demà compliré 28 anys.
+ED	
+T	demá compliré 28 anys.
+
+S	no quiero vivir solo.
+MT	no vull viure només.
+ED	
+T	no vull vivir tot sol.
+
+S	oh, lo siento.
+MT	oh, ho sento.
+ED	
+T	oh, em sap greu.
+
+S	se le denegó un tratamiento médico.
+MT	se li va denegar un tractament mèdic.
+ED	
+T	se li va denegar un tractament mèdic.
+
+S	en nuestros tiempos, había muchos estudiantes que aprobaban el examen de graduación sin estudiar.
+MT	en els nostres temps, hi havia molts estudiants que aprovaven l'examen de graduació sense estudiar.
+ED	
+T	per la nostra època, hi havia molts estudiants que aprovaven l'examen de graduació sense estudiar.
+
+S	te veo antes de las 7.
+MT	et veig abans de les 7.
+ED	
+T	et veig abans de les 7.
+
+S	todo lo que empieza tiene su fin.
+MT	tot el que comença té la seva fi.
+ED	
+T	tot allò que comença té fi.
+
+S	el bus llegó diez minutos tarde.
+MT	el bus va arribar deu minuts tard.
+ED	
+T	el bus va arribar deu minuts tard.
+
+S	no puedo planchar mi ropa. no tengo plancha.
+MT	no puc planxar la meva roba. no tinc planxa.
+ED	
+T	no puc planxar la meva roba. no tinc planxa.
+
+S	vayamos por aquí.
+MT	anem per aquí.
+ED	
+T	anem per aquí.
+
+S	nada es más placentero que viajar.
+MT	gens és més plaent que viatjar.
+ED	
+T	res és mes plaent que viatjar.
+
+S	espero que resulte bien.
+MT	espero que resulti bé.
+ED	
+T	espero que surti bé.
+
+S	él lava los pantalones.
+MT	ell renta els pantalons.
+ED	
+T	ell renta els pantalons.
+
+S	aprobó el examen a pesar de tener que renunciar a su vida social.
+MT	va aprovar l'examen malgrat haver de renunciar a la seva vida social.
+ED	
+T	va aprovar l'examen malgrat haver de renunciar a la seva vida social.
+
+S	ha de tener casi cuarenta.
+MT	ha de tenir gairebé quaranta.
+ED	
+T	en deu tenir gairebé quaranta.
+
+S	él se graduó de cambridge con honores.
+MT	ell es va graduar de cambridge amb honors.
+ED	
+T	ell es va graduar a cambridge amb honors.
+
+S	los derechos no se piden, se toman.
+MT	els drets no es demanen, es prenen.
+ED	
+T	els drets no es demanen, es prenen.
+
+S	es tu ex-mujer.
+MT	és la teva exdona.
+ED	
+T	és la teva ex-dona.
+
+S	yo vengo de saitama.
+MT	jo vinc de *saitama.
+ED	
+T	jo venc de saitama.
+
+S	escribe estas palabras en tu cuaderno.
+MT	escriu aquestes paraules en el teu quadern.
+ED	
+T	escriu aquestes paraules al teu quadern.
+
+S	necesito muchos libros.
+MT	necessito molts llibres.
+ED	
+T	necessito molts llibres.
+
+S	se está haciendo tarde, así que es mejor que nos vayamos.
+MT	s'està fent tard, així que és millor que ens anem.
+ED	
+T	s'està fent tard, així que millor que ens ananem.
+
+S	todos los niños están sentados.
+MT	tots els nens estan asseguts.
+ED	
+T	tots els nens eren asseguts.
+
+S	el joven que conducía el coche estaba borracho.
+MT	el jove que conduïa el cotxe estava borratxo.
+ED	
+T	el jove que conduïa el cotxe estava borratxo.
+
+S	sé simpático con ella.
+MT	sé simpàtic amb ella.
+ED	
+T	sigues simpátic amb ella.
+
+S	se anuló el picnic a causa de la lluvia.
+MT	es va anul·lar el pícnic a causa de la pluja.
+ED	
+T	es va anul·lar el pícnic per la pluja.
+
+S	el precio refleja la demanda.
+MT	el preu reflecteix la demanda.
+ED	
+T	el preu reflexa la demanda.
+
+S	lamento oír eso.
+MT	lamento sentir això.
+ED	
+T	em sap greu escoltar això.
+
+S	tengo muchas cosas que hacer esta semana.
+MT	tinc moltes coses que fer aquesta setmana.
+ED	
+T	haig de fer moltes coses aquesta setmana.
+
+S	busca esa palabra en el diccionario.
+MT	cerca aquesta paraula en el diccionari.
+ED	
+T	cerca aquella paraula al diccionari.
+
+S	lo que él trata de decir es bien sencillo de comprender.
+MT	el que ell tracta de dir és ben senzill de comprendre.
+ED	
+T	el que tracta de dir és ben senzill de comprendre.
+
+S	ya veo que has adelgazado.
+MT	ja veig que has aprimat.
+ED	
+T	ja veig que t'has aprimat.
+
+S	ella tiene más o menos cuarenta años.
+MT	ella té més o menys quaranta anys.
+ED	
+T	ella té més o menys quaranta anys.
+
+S	el año pasado fui a viena por primera vez.
+MT	l'any passat vaig ser a viena per primera vegada.
+ED	
+T	l'any passat vaig anar a viena per primer cop.
+
+S	ese hábito es adquirido, no innato.
+MT	aquest hàbit és adquirit, no innat.
+ED	
+T	aquest hàbit és adquirit, no innat.
+
+S	un bebé es incapaz de cuidar de sí mismo.
+MT	un bebè és incapaç de cuidar de si mateix.
+ED	
+T	un nadó és incapaç de prendre cura d'ell mateix.
+
+S	ella siempre está intentando encontrar la felicidad.
+MT	ella sempre està intentant trobar la felicitat.
+ED	
+T	ella sempre està intentant trobar la felicitat.
+
+S	vi la imagen.
+MT	vaig veure la imatge.
+ED	
+T	vaig veure la imatge.
+
+S	la máquina es tan delicada que se rompe fácilmente.
+MT	la màquina és tan delicada que es trenca fàcilment.
+ED	
+T	la màquina és tan del·licada que es trenca fàcilment.
+
+S	se ayudaron mutuamente a hacer los deberes.
+MT	es van ajudar mútuament a fer els deures.
+ED	
+T	es van ajudar mútuament a fer els deures.
+
+S	aquel tipo es mi amigo.
+MT	aquell tipus és el meu amic.
+ED	
+T	aquell tipus és el meu amic.
+
+S	si una figura tiene tres lados, es un triángulo.
+MT	si una figura té tres costats, és un triangle.
+ED	
+T	si una figura té tres costats, és un triangle.
+
+S	no me hagas esperar así.
+MT	no em facis esperar així.
+ED	
+T	no em facis esperar així.
+
+S	supongamos que ella estuviera aquí.
+MT	suposem que ella estigués aquí.
+ED	
+T	suponguem que ella estigués aquí.
+
+S	algunos profesores no entienden este problema.
+MT	alguns professors no entenen aquest problema.
+ED	
+T	alguns professors no entenen aquest problema.
+
+S	perdí mi zapato en el incendio.
+MT	vaig perdre la meva sabata en l'incendi.
+ED	
+T	vaig perdre la meva sabata a l'incendi.
+
+S	tom compró una casa con seis habitaciones.
+MT	tom va comprar una casa amb sis habitacions.
+ED	
+T	en tom va comprar una casa amb sis habitacions.
+
+S	ellos saben pescar.
+MT	ells saben pescar.
+ED	
+T	saben pescar.
+
+S	le gusta mucho la música.
+MT	li agrada molt la música.
+ED	
+T	li agrada molt la música.
+
+S	tu cuenta esta vacía.
+MT	el teu compte aquesta buida.
+ED	
+T	el teu compte és buit.
+
+S	su largo cabello estaba completamente mojado.
+MT	el seu llarg cabell estava completament mullat.
+ED	
+T	els seus llargs cabells estaven completament mullats.
+
+S	ella se enfadó y se dio la vuelta.
+MT	ella es va enfadar i es va donar la volta.
+ED	
+T	ella es va enfadar i va girar cua.
+
+S	la conocí durante mi estadía en méxico.
+MT	la vaig conèixer durant el meu *estadía a mèxic.
+ED	
+T	la vaig conèixer durant la meva estància a mèxic.
+
+S	tienes buena cara.
+MT	tens bona cara.
+ED	
+T	tens bona cara.
+
+S	sea como sea, estás equivocado.
+MT	sigui com sigui, estàs equivocat.
+ED	
+T	sigui com sigui, estàs equivocat.
+
+S	la inocencia es preciosa.
+MT	la innocència és preciosa.
+ED	
+T	la innocència és preciosa.
+
+S	él es fuerte, valiente y, sobre todo, amable.
+MT	ell és fort, valent i, sobretot, amable.
+ED	
+T	ell és fort, valent i sobretot, amable.
+
+S	le recomendé que viera una película.
+MT	li vaig recomanar que veiés una pel·lícula.
+ED	
+T	li vaig recomanar que veiés una pel·lícula.
+
+S	el policía dijo a las chicas: "¿este coche es vuestro?"
+MT	el policia va dir a les noies: "aquest cotxe és vostre?"
+ED	
+T	el policía va dir a les noies "aquest cotxe es vostre?"
+
+S	el papel se quema fácilmente.
+MT	el paper es crema fàcilment.
+ED	
+T	el paper es crema fàcilment.
+
+S	puedes comer en esta sala.
+MT	pots menjar en aquesta sala.
+ED	
+T	pots dinar en aquesta sala.
+
+S	mi padre tiene un restaurante.
+MT	el meu pare té un restaurant.
+ED	
+T	el meu pare té un restaurant.
+
+S	las rosas huelen bien.
+MT	les roses fan bona olor.
+ED	
+T	les roses fan bona olor.
+
+S	todavía queda mucho por hacer.
+MT	encara queda molt per fer.
+ED	
+T	encara queda molt per fer.
+
+S	no ha parado de llover en tres días.
+MT	no ha parat de ploure en tres dies.
+ED	
+T	no ha parat de ploure durant tres dies.
+
+S	este río mide 500 millas.
+MT	aquest riu mesura 500 milles.
+ED	
+T	aquest riu fa 500 milles.
+
+S	las investigaciones no fueron suficientes para explicar muchas cosas.
+MT	les recerques no van ser suficients per explicar moltes coses.
+ED	
+T	no n'hi va haver prou amb les investigacions per aclarir moltes coses.
+
+S	jack es el chico más inteligente de la clase.
+MT	jack és el noi més intel·ligent de la classe.
+ED	
+T	jack és el noi més intel·ligent de la classe.
+
+S	de repente oí un grito.
+MT	de sobte vaig sentir un crit.
+ED	
+T	de cop, vaig escoltar un crit.
+
+S	la niñita es zurda.
+MT	la *niñita és esquerrana.
+ED	
+T	la nena és esquerrana.
+
+S	ahora son las cuatro y diez.
+MT	ara són les quatre i deu.
+ED	
+T	ara son les cuatre i deu
+
+S	sólo hay una cosa por hacer.
+MT	només hi ha una cosa per fer.
+ED	
+T	només hi ha una cosa per fer.
+
+S	le pregunté a él dónde podía aparcar el coche.
+MT	li vaig preguntar a ell on podia aparcar el cotxe.
+ED	
+T	li vaig preguntar on podia aparcar el cotxe.
+
+S	él suele comer fuera los sábados por la noche.
+MT	ell sol menjar fos els dissabtes a la nit.
+ED	
+T	ell sol menjar fora els dissabtes al vespre.
+
+S	sus predicciones se han cumplido.
+MT	les seves prediccions s'han complert.
+ED	
+T	les seves prediccions s'han complert.
+
+S	lo que te dijeron no es cierto.
+MT	el que et van dir no és cert.
+ED	
+T	no és cert el que te varen dir.
+
+S	habría tenido que morir por inanición.
+MT	hi hauria hagut de morir per inanició.
+ED	
+T	hauria hagut de morir per inanició per manca d'aliments.
+
+S	siempre está soñando despierto.
+MT	sempre està somiant despert.
+ED	
+T	sempre està somiant despert.
+
+S	ya que he vivido en tokio antes, conozco bastante bien la ciudad.
+MT	ja que he viscut a tòquio abans, conec bastant bé la ciutat.
+ED	
+T	com que he viscut a tòquio, conec bastant bé la ciutat.
+
+S	la madre repartió el dinero entre sus hijos.
+MT	la mare va repartir els diners entre els seus fills.
+ED	
+T	la mare va repartir els diners entre els seus fills.
+
+S	jodida puta.
+MT	fotuda puta.
+ED	
+T	meuca fotuda.
+
+S	pedí una pizza por teléfono.
+MT	vaig demanar una pizza per telèfon.
+ED	
+T	vaig demanar una pizza per telèfon.
+
+S	dormí bien toda la noche.
+MT	vaig dormir bé tota la nit.
+ED	
+T	vaig dormir bé tota la nit.
+
