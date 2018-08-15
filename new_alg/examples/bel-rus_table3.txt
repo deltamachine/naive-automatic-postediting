@@ -1,9 +1,0 @@
-твой	prn	True	твой	prn	True
-любiць	vblex	False	любить	vblex	True
-люся	n	False	люся	n	False
-знайсці	vblex	True	находить	vblex	True
-педафіл	n	False	педофил	n	True
-клава	n	False	клава	n	False
-ведаць	n	True	знать	vblex	False
-ведаць	vblex	True	знать	vblex	False
-леў	n	True	лев	n	True
