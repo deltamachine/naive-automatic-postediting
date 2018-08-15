@@ -20,8 +20,9 @@ d) UDPipe + models for Belarusian and Ukranian.
 
 You can take data for training and testing in following folders:
 
-* Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/data/be (for training: *train.bel, train.mt.rus, train.rus*, for testing: *test.bel, test.mt.rus, test.rus*)
-* Russian - Ukranian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/data/be (for training: *train.ru, train.mt.uk, train.uk*, for testing: *test.ru, test.mt.uk, test.uk*)
+* Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/toolbox/bel-rus_data/train-test (for training: *train.bel, train.mt.rus, train.rus*, for testing: *test.bel, test.mt.rus, test.rus*)
+* Russian - Ukranian: https://github.com/deltamachine/naive-automatic-postediting/tree/master/toolbox/rus-ukr_data/train-test (for training: *train.ru, train.mt.uk, train.uk*, for testing: *test.ru, test.mt.uk, test.uk*)
+* Spanish - Catalan: https://github.com/deltamachine/naive-automatic-postediting/tree/master/toolbox/spa-cat_data (for training: *train.spa, train.mt.cat, train.cat*, for testing: *test.spa, test.mt.cat, test.cat*)
 
 ### 2. Algorithm for operations extraction
 
@@ -37,13 +38,13 @@ new_learn_postedits_algorithm.py train.source train.mt train.target source_lang 
 
 *context_window* parameter - number of words around the word which should be postedited.
 
-Output example for Belarusian - Russian (context window = 1): https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-postedits.txt
+Output example for Belarusian - Russian (context window = 1): https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-postedits.txt
 
 
 ##### Example
 
 ```
-python3 new_learn_postedits_algorithm.py train.be train.mt.ru train.ru bel rus /home/anna/apertium-bel-rus 1
+python3 new_learn_postedits_algorithm.py bel-rus_data/train-test/train.bel bel-rus_data/train-test/train.mt.rus bel-rus_data/train-test/train.rus bel rus /home/.../apertium-bel-rus 1
 ```
 
 ### 3. Classifying postedits
@@ -68,9 +69,9 @@ python3 extract_types.py bel-rus_postedits.txt bel-rus
 
 Output example for Belarusian - Russian:
 
-* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-bidix_entries.txt
-* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-grammar_entries.txt
-* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-other_entries.txt
+* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-bidix_entries.txt
+* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-grammar_entries.txt
+* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-other_entries.txt
 
 ### 4. Cleaning
 
@@ -87,14 +88,14 @@ clean_postedits.py postedits.txt source_lang target_lang path_to_lang_pair
 ##### Example
 
 ```
-python3 clean_postedits.py bel-rus_bidix_entries.txt bel rus /home/anna/apertium/apertium-bel-rus
+python3 clean_postedits.py bel-rus_bidix_entries.txt bel rus /home/.../apertium-bel-rus
 ```
 
 Output example for Belarusian - Russian:
 
-* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-bidix_entries.txt
-* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-grammar_entries.txt
-* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/be_data/bel-rus-cleaned_bel-rus-other_entries.txt
+* bidix entries: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-cleaned_bel-rus-bidix_entries.txt
+* grammar mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-cleaned_bel-rus-grammar_entries.txt
+* other mistakes: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_data/bel-rus-cleaned_bel-rus-other_entries.txt
 
 ### 5. Inserting operations into a language pair: dictionary approach
 
@@ -110,18 +111,18 @@ NB2: if your source/target language is Russian, type 'mystem' instead of source_
 create_entries_table.py bidix_postedits.txt source_lang target_lang ud_bin_path source_ud_model_path target_ud_model_path
 ```
 
-Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table1.txt
+Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/examples/bel-rus_table1.txt
 
 ##### Example
 
 ```
-python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/udpipe/src/udpipe /home/udpipe/belarusian-ud-2.0-170801.udpipe mystem
+python3 create_entries_table.py bel-rus_bidix_entries.txt bel rus /home/.../udpipe/src/udpipe /home/.../belarusian-ud-2.0-170801.udpipe mystem
 
 ```
 
 b) After that, the created table should be manually checked: UDPipe/Mystem not always determine a correct lemma/tag for a word. Edit lemmas and tags if they are wrong.
 
-Example of manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table2.txt
+Example of manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/examples/bel-rus_table2.txt
 
 c) Run *check_entries.py* on the manually edited table. This script will look for every lemma in monolingual dictionaries and write 'True' (if lemma was found and it shouldn't be added in a monolingual dictionary) and 'False' (if lemma wasn't found) near every word in the table.
 
@@ -133,15 +134,15 @@ check_entries.py source_lang target_lang source_dict_path target_dict_path
 ##### Example
 
 ```
-python3 check_entries.py bel rus /home/anna/apertium-bel/apertium-bel.bel.dix /home/anna/apertium-rus/apertium-rus.rus.dix
+python3 check_entries.py bel rus /home/.../apertium-bel/apertium-bel.bel.dix /home/.../apertium-rus/apertium-rus.rus.dix
 
 ```
 
-Output example: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table3.txt
+Output example: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/examples/bel-rus_table3.txt
 
 d) Manually edit the table: add a stem and a paradigm for every word, which was not found in dictionaries. If this is a 'True' lemma, just write 'none' instead stem and paradigm.
 
-Example of the manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_table4.txt
+Example of the manually edited table: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/examples/bel-rus_table4.txt
 
 e) Run *add_new_entries.py* on the edited table.
 
@@ -152,7 +153,7 @@ add_new_entries.py table.txt source_path target_path pair_path source_lang targe
 ##### Example
 
 ```
-python3 add_new_entries.py bel-rus_table.txt /home/anna/apertium-bel /home/anna/apertium-rus /home/anna/apertium-bel-rus bel rus
+python3 add_new_entries.py bel-rus_table.txt /home/.../apertium-bel /home/.../apertium-rus /home/.../apertium-bel-rus bel rus
 
 ```
 
@@ -170,10 +171,10 @@ new_apply_postedits.py source_corpus.txt mt_corpus.txt target_corpus.txt postedi
 ##### Example
 
 ```
-python3 new_apply_postedits.py test.bel test.mt.rus test.rus bel-rus_bidix_entries.txt bel rus /home/anna/apertium/apertium-bel-rus
+python3 new_apply_postedits.py bel-rus_data/train-test/test.bel bel-rus_data/train-test/test.mt.rus bel-rus_data/train-test/test.rus bel-rus_bidix_entries.txt bel rus /home/.../apertium-bel-rus
 ```
 
-Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/new_alg/examples/bel-rus_corrected.txt
+Output example for Belarusian - Russian: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/examples/bel-rus_corrected.txt
 
 How to check WER (run this on the file which was created on the previous step):
 
@@ -186,5 +187,5 @@ check_wer.py nap_output.txt path_to_eval_translator
 ##### Example
 
 ```
-python3 check_wer.py bel-rus_corrected.txt /home/anna/apertium-eval-translator/apertium-eval-translator.pl
+python3 check_wer.py bel-rus_corrected.txt /home/.../apertium-eval-translator/apertium-eval-translator.pl
 ```
