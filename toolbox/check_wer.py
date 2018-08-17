@@ -23,7 +23,7 @@ def clean_text(input_file):
 	with open(input_file, 'r', encoding='utf-8') as file:
 		input_file = file.read().strip('\n')
 
-	input_file = re.sub(' \.', '.', input_file)
+	"""input_file = re.sub(' \.', '.', input_file)
 	input_file = re.sub(' ,', ',', input_file)
 	input_file = re.sub(' \?', '?', input_file)
 	input_file = re.sub(' !', '!', input_file)
@@ -33,7 +33,7 @@ def clean_text(input_file):
 	input_file = re.sub(' "', '"', input_file)
 	input_file = re.sub('« ', '«', input_file)
 	input_file = re.sub(' »', '»', input_file)
-	input_file = re.sub('#', '', input_file)
+	input_file = re.sub('#', '', input_file)"""
 	input_file = re.sub('MT\t', ' ', input_file)
 	input_file = re.sub('T\t', ' ', input_file)
 	input_file = re.sub('ED\t', ' ', input_file)

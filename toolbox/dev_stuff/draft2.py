@@ -80,6 +80,8 @@ def find_context(entries, lines):
 		if value != [[], []]:
 			cleaned_context['\t'.join(key)] = value
 
+	print(cleaned_context)
+
 	return cleaned_context
 
 

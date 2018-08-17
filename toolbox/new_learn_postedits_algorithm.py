@@ -93,9 +93,12 @@ def collect(sentence, sentence_tagged):
 	units = parse(c for c in sentence_tagged)
 	counter = 0
 
-	for unit in units:
-		sentence_words[counter] = [tokens[counter], set(unit.readings[0][0][1])]
-		counter += 1
+	try:
+		for unit in units:
+			sentence_words[counter] = [tokens[counter], set(unit.readings[0][0][1])]
+			counter += 1
+	except:
+		pass
 
 	return sentence_words
 
@@ -222,57 +225,54 @@ def find_postedits(source, mt, target, source_tagged, mt_tagged, target_tagged, 
 	postedits, alignments = [], []
 
 	for i in range(len(source)):
-		try:
-			source_words = collect(source[i], source_tagged[i])
-			mt_words = collect(mt[i], mt_tagged[i])
-			target_words = collect(target[i], target_tagged[i])
+		source_words = collect(source[i], source_tagged[i])
+		mt_words = collect(mt[i], mt_tagged[i])
+		target_words = collect(target[i], target_tagged[i])
 
-			mt_align = align(source_words, mt_words)
-			target_align = align(source_words, target_words)
+		mt_align = align(source_words, mt_words)
+		target_align = align(source_words, target_words)
 
-			len_mt = len(mt_align)
-			len_tar = len(target_align)
+		len_mt = len(mt_align)
+		len_tar = len(target_align)
 
-			#print(mt_align, target_align)
+		#print(mt_align, target_align)
 
-			for j in range(len(mt_align)):
-				a = j - cont_wind
-				b = len_mt - j - 1
+		for j in range(len(mt_align)):
+			a = j - cont_wind
+			b = len_mt - j - 1
 
-				for k in range(len(target_align)):
-					c = k - cont_wind
-					d = len_tar - k - 1
+			for k in range(len(target_align)):
+				c = k - cont_wind
+				d = len_tar - k - 1
 
-					if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
-						if a <= 0 and c <= 0 and b > cont_wind and d > cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align[0:j+cont_wind+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[0:j+cont_wind+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[0:k+cont_wind+1]])
+				if mt_align[j][0] == target_align[k][0] and mt_align[j][1] != target_align[k][1]:
+					if a <= 0 and c <= 0 and b > cont_wind and d > cont_wind:
+						elem1 = ' '.join([elem[0] for elem in mt_align[0:j+cont_wind+1]])
+						elem2 = ' '.join([elem[1] for elem in mt_align[0:j+cont_wind+1]])
+						elem3 = ' '.join([elem[1] for elem in target_align[0:k+cont_wind+1]])
 
-						elif a <= 0 and c <= 0 and b <= cont_wind and d <= cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align])
-							elem2 = ' '.join([elem[1] for elem in mt_align])
-							elem3 = ' '.join([elem[1] for elem in target_align])
+					elif a <= 0 and c <= 0 and b <= cont_wind and d <= cont_wind:
+						elem1 = ' '.join([elem[0] for elem in mt_align])
+						elem2 = ' '.join([elem[1] for elem in mt_align])
+						elem3 = ' '.join([elem[1] for elem in target_align])
 
-						elif a > 0 and c > 0 and b <= cont_wind and d <= cont_wind:
-							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:]])
-							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:]])
+					elif a > 0 and c > 0 and b <= cont_wind and d <= cont_wind:
+						elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:]])
+						elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:]])
+						elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:]])
 
-						else:
-							elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:j+cont_wind+1]])
-							elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:j+cont_wind+1]])
-							elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:k+cont_wind+1]])
-
-						postedits.append((elem1, elem2, elem3))
-
-					elif mt_align[j][0] == target_align[k][0] and mt_align[j][1] == target_align[k][1]:
-						alignments.append((mt_align[j][0], mt_align[j][1], target_align[k][1]))
-						#print((mt_align[j][0], mt_align[j][1], target_align[k][1]))
 					else:
-						pass
-		except:
-			pass
+						elem1 = ' '.join([elem[0] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[0] for elem in mt_align[j:j+cont_wind+1]])
+						elem2 = ' '.join([elem[1] for elem in mt_align[a:j]]) + ' ' + ' '.join([elem[1] for elem in mt_align[j:j+cont_wind+1]])
+						elem3 = ' '.join([elem[1] for elem in target_align[c:k]]) + ' ' + ' '.join([elem[1] for elem in target_align[k:k+cont_wind+1]])
+
+					postedits.append((elem1, elem2, elem3))
+
+				elif mt_align[j][0] == target_align[k][0] and mt_align[j][1] == target_align[k][1]:
+					alignments.append((mt_align[j][0], mt_align[j][1], target_align[k][1]))
+					#print((mt_align[j][0], mt_align[j][1], target_align[k][1]))
+				else:
+					pass
 
 	return postedits, alignments
 
