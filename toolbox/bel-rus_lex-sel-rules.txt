@@ -1,0 +1,59 @@
+<rule>
+  <or>
+    <match lemma="сямнаццаць" tags="num.*"/>
+    <match lemma="заўсёды" tags="adv.*"/>
+    <match lemma="сто" tags="num.*"/>
+  </or>
+  <match lemma="год" tags="n.*">
+    <select lemma="год²" tags="n.*"/>
+  </match>
+  <match lemma="пяцьдзясят" tags="num.*"/>
+</rule>
+
+<rule>
+  <or>
+    <match lemma="увесь" tags="prn.*"/>
+    <match lemma="jmdict" tags="не"/>
+  </or>
+  <match lemma="быть" tags="vbser.*">
+    <select lemma="." tags="sent.*"/>
+  </match>
+  <or>
+    <match lemma="зразумела" tags="adv.*"/>
+    <match lemma="стварэнне" tags="n.*"/>
+    <match lemma="нішто" tags="prn.*"/>
+  </or>
+</rule>
+
+<rule>
+  <match lemma="тры" tags="num.*"/>
+  <match lemma="кубк" tags="*">
+    <select lemma="чашка" tags="n.*"/>
+  </match>
+</rule>
+
+<rule>
+  <match lemma="хто" tags="prn.*"/>
+  <match lemma="яе" tags="*">
+    <select lemma="она" tags="prn.*"/>
+  </match>
+</rule>
+
+<rule>
+  <match lemma="у" tags="pr.*">
+    <select lemma="у" tags="pr.*"/>
+  </match>
+  <or>
+    <match lemma="я" tags="prn.*"/>
+    <match lemma="чалавек" tags="n.*"/>
+  </or>
+</rule>
+
+<rule>
+  <match lemma="напісаць" tags="vblex.*"/>
+  <match lemma="ліст" tags="*">
+    <select lemma="письмо" tags="n.*"/>
+  </match>
+  <match lemma="па-англійску" tags="adv.*"/>
+</rule>
+
