@@ -99,7 +99,7 @@ Output example for Belarusian - Russian:
 
 ### 5. Inserting operations into a language pair: dictionary approach
 
-How to create monodix/bidix entries:
+##### How to create monodix/bidix entries:
 
 a) Run *create_entries_table.py* on a file with cleaned bidix postedits.
 
@@ -156,6 +156,38 @@ add_new_entries.py table.txt source_path target_path pair_path source_lang targe
 python3 add_new_entries.py bel-rus_table.txt /home/.../apertium-bel /home/.../apertium-rus /home/.../apertium-bel-rus bel rus
 
 ```
+
+##### How to create lexical selection rules:
+
+1. Run _find_context.py_ on your file with "other" mistakes.
+
+```
+find_context.py other_entries.txt all_postedits.txt source_lang target_lang type_of_postedits
+```
+
+##### Example
+
+```
+python3 find_context.py bel-rus_data/bel-rus-cleaned_bel-rus-other_entries.txt bel-rus_data/bel-rus-postedits.txt bel rus other
+
+```
+
+2. Run _create_ls_rules.py on the file created on the previous step.
+
+```
+create_ls_rules.py other_entries_context.txt source_lang target_lang path_to_lang_pair
+```
+
+##### Example
+
+```
+python3 create_ls_rules.py bel-rus_data/bel-rus_other-pe-context.json bel rus /home/.../apertium-bel-rus
+
+```
+
+This script will create potential lexical selection rules and write them in a file. Note, that tt works not perfectly and still requires some manual correction.
+
+Example of automatically generated lexical selection rules: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_lex-sel-rules.txt
 
 ### 6. Inserting operations into a language pair: separate module approach (under development)
 
