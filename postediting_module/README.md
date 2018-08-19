@@ -37,18 +37,18 @@ $ python3 setup.py raw bel-rus
 
 Example 1:
 
-* Source sentence: **Xуткая шэрая лісіца пераскаквае проста праз лянівага сабаку**
-* Translation without postediting module: **Быстрая серая лисичка *пераскаквае просто через ленивой собаку**
-* Translation with postediting module: **Быстрая серая лисичка перепрыгивает просто через ленивой собаку**
+* Source sentence: _Xуткая шэрая лісіца **пераскаквае** проста праз лянівага сабаку._
+* Translation without postediting module: _Быстрая серая лисичка ***пераскаквае** просто через ленивой собаку._
+* Translation with postediting module: _Быстрая серая лисичка **перепрыгивает** просто через ленивой собаку._
 
 Example 2:
 
-* Source sentence: **У гэтым класе 40 вучняў**
-* Translation without postediting module: **В этим классе 40 учеников**
-* Translation with postediting module: **В этом классе 40 учеников**
+* Source sentence: _У **гэтым** класе 40 вучняў._
+* Translation without postediting module: _В **этим** классе 40 учеников._
+* Translation with postediting module: _В **этом** классе 40 учеников._
 
 Example 3:
 
-* Source sentence: **Учора вечарам я напісаў ліст**
-* Translation without postediting module: **Вчера вечером я написал лист**
-* Translation with postediting module: **Вчера вечером я написал письмо**
+* Source sentence: _Учора вечарам я напісаў **ліст**._
+* Translation without postediting module: _Вчера вечером я написал **лист**._
+* Translation with postediting module: _Вчера вечером я написал **письмо**._
