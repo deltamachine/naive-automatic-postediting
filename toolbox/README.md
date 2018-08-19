@@ -157,6 +157,7 @@ python3 add_new_entries.py bel-rus_table.txt /home/.../apertium-bel /home/.../ap
 
 ```
 
+
 ##### How to create lexical selection rules:
 
 1. Run _find_context.py_ on your file with "other" mistakes.
@@ -172,7 +173,7 @@ python3 find_context.py bel-rus_data/bel-rus-cleaned_bel-rus-other_entries.txt b
 
 ```
 
-2. Run _create_ls_rules.py on the file created on the previous step.
+2. Run _create_ls_rules.py_ on the file created on the previous step.
 
 ```
 create_ls_rules.py other_entries_context.txt source_lang target_lang path_to_lang_pair
