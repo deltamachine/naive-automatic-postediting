@@ -1,16 +1,25 @@
 import os
 import re
 import sys
+import argparse
 from shutil import copyfile
-from subprocess import check_output
 
 
-def find_path(dir_name):
-    path = check_output('locate ' + dir_name, shell=True)
-    path = str(path).split('\\n')
-    path = path[0][2:]
+"""
+===================== Global arguments section =================================
+"""
 
-    return path
+parser = argparse.ArgumentParser(description='Postediting module for Apertium pipeline')
+parser.add_argument('work_mode', help='Should be either \'pe\' or \'raw\'')
+parser.add_argument('lang_pair', help='For example, bel-rus')
+parser.add_argument('path', help='Path to Apertium language pair') 
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def copy_files(lang_path, apertium_path):
@@ -69,10 +78,10 @@ def change_other_modes(apertium_path, other_changes, lang_pair, work_mode):
 
 
 def main():
-    work_mode = sys.argv[1]
-    lang_pair = sys.argv[2]
+    work_mode = args.work_mode
+    lang_pair = args.lang_pair
+    apertium_path = args.path
 
-    apertium_path = find_path('apertium-%s' % (lang_pair))
     python_path = sys.executable
 
     main_changes = '  <mode name="%s-posteditor" install="no">\n    <pipeline>\n        <program name="%s">\n            <file name="posteditor.py"/>\n        </program>\n    </pipeline>\n  </mode>\n\n' % (lang_pair, python_path)
