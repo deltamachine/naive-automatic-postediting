@@ -53,3 +53,26 @@ Example 3:
 * Source sentence: _Учора вечарам я напісаў **ліст**._
 * Translation without postediting module: _Вчера вечером я написал **лист**._
 * Translation with postediting module: _Вчера вечером я написал **письмо**._
+
+### Testing
+
+If you want to test posteditor on bel-rus without installing it in the pipeline, you can just run _posteditor.py_: 
+
+```cmd
+$ python3 posteditor.py
+```
+
+It will require an input string which should be an output of the raw Apertium pipeline.
+
+* Input: _Быстрая серая лисичка ***пераскаквае** просто через ленивой собаку._
+* Output: _Быстрая серая лисичка **перепрыгивает** просто через ленивой собаку._
+
+Example 2:
+
+* Input: _В **этим** классе 40 учеников._
+* Output: _В **этом** классе 40 учеников._
+
+Example 3:
+
+* Input: _Вчера вечером я написал **лист**._
+* Output: _Вчера вечером я написал **письмо**._
