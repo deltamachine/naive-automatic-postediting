@@ -186,9 +186,85 @@ python3 create_ls_rules.py bel-rus_data/bel-rus_other-pe-context.json bel rus /h
 
 ```
 
+
 This script will create potential lexical selection rules and write them in a file. Note, that tt works not perfectly and still requires some manual correction.
 
 Example of automatically generated lexical selection rules: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_lex-sel-rules.txt
+
+
+#### Test lexical selection rules
+
+The script generated few potential selection rules: https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_lex-sel-rules.txt.
+
+This file contains two good lexical selection rules which were manually choosed and edited a bit (missed tags were added, lemma for "кубак" was edited): https://github.com/deltamachine/naive-automatic-postediting/blob/master/toolbox/bel-rus_corrected-rules.txt
+
+If you want to test bel-rus rules:
+
+1. Run _add_ls_rules.py_:
+
+```
+python3 add_ls_rules.py bel-rus_corrected-rules.txt bel-rus /home/.../apertium-bel-rus
+
+```
+
+2. Cd into apertium-bel-rus directory.
+
+3. Run examples.
+
+**Example 1**
+
+Run:
+
+```
+echo "Я напісаў ліст." | apertium -d . bel-rus-lex
+
+```
+
+Output you should get:
+
+```
+^Я<prn><pers><p1><mf><sg><nom>/Я<prn><pers><p1><mf><sg><nom>$ ^напісаць<vblex><perf><past><m><sg>/написать¹<vblex><perf><tv><past><m><sg>$ ^ліст<n><m><nn><sg><nom>/лист<n><m><nn><sg><nom>/письмо<n><m><nn><sg><nom>$^..<sent>/..<sent>$
+```
+
+Then run:
+
+```
+echo "^Я<prn><pers><p1><mf><sg><nom>/Я<prn><pers><p1><mf><sg><nom>$ ^напісаць<vblex><perf><past><m><sg>/написать¹<vblex><perf><tv><past><m><sg>$ ^ліст<n><m><nn><sg><nom>/лист<n><m><nn><sg><nom>/письмо<n><m><nn><sg><nom>$^..<sent>/..<sent>$" | lrx-proc -t rules.fst
+```
+
+Output you should get:
+
+```
+1:SELECT<1>:ліст<n><m><nn><sg><nom>:<select>письмо<n><ANY_TAG>
+^Я<prn><pers><p1><mf><sg><nom>/Я<prn><pers><p1><mf><sg><nom>$ ^напісаць<vblex><perf><past><m><sg>/написать¹<vblex><perf><tv><past><m><sg>$ ^ліст<n><m><nn><sg><nom>/письмо<n><m><nn><sg><nom>$^..<sent>/..<sent>$
+```
+
+**Example 2**
+
+Run:
+
+```
+echo "Ён выпіў тры кубкі кавы" | apertium -d . bel-rus-lex
+```
+
+Output you should get:
+
+```
+^Ён<prn><pers><p3><m><sg><nom>/Он<prn><pers><p3><m><sg><nom>$ ^выпіць<vblex><perf><past><m><sg>/выпить<vblex><perf><tv><past><m><sg>$ ^тры<num><mfn><an><pl><nom>/три<num><mfn><an><pl><nom>$ ^кубак<n><m><nn><pl><nom>/кубок<n><m><nn><pl><nom>/чашка<n><m><nn><pl><nom>$ ^кава<n><f><nn><sg><gen>/кофе<n><m><nn><sg><gen>$^.<sent>/.<sent>$
+```
+
+Then run:
+
+```
+echo "^Ён<prn><pers><p3><m><sg><nom>/Он<prn><pers><p3><m><sg><nom>$ ^выпіць<vblex><perf><past><m><sg>/выпить<vblex><perf><tv><past><m><sg>$ ^тры<num><mfn><an><pl><nom>/три<num><mfn><an><pl><nom>$ ^кубак<n><m><nn><pl><nom>/кубок<n><m><nn><pl><nom>/чашка<n><m><nn><pl><nom>$ ^кава<n><f><nn><sg><gen>/кофе<n><m><nn><sg><gen>$^.<sent>/.<sent>$" | lrx-proc -t rules.fst
+```
+
+Output you should get:
+
+```
+1:SELECT<3>:кубак<n><m><nn><pl><nom>:<select>чашка<n><ANY_TAG>
+^Ён<prn><pers><p3><m><sg><nom>/Он<prn><pers><p3><m><sg><nom>$ ^выпіць<vblex><perf><past><m><sg>/выпить<vblex><perf><tv><past><m><sg>$ ^тры<num><mfn><an><pl><nom>/три<num><mfn><an><pl><nom>$ ^кубак<n><m><nn><pl><nom>/чашка<n><m><nn><pl><nom>$ ^кава<n><f><nn><sg><gen>/кофе<n><m><nn><sg><gen>$^.<sent>/.<sent>$
+```
 
 ### 6. Inserting operations into a language pair: separate module approach (under development)
 
