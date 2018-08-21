@@ -22,11 +22,27 @@ args = parser.parse_args()
 """
 
 
-def copy_files(lang_path, apertium_path):
-    list_of_files = os.listdir(lang_path)
+def copy_files(lang_pair, apertium_path):
+    bd = lang_pair + '_bidix-entries.txt'
+    gram = lang_pair + '_grammar-context.json'
+    other = lang_pair + '_other-context.json'
+
+    list_of_files = [bd, gram, other]
 
     for file in list_of_files:
-        copyfile(lang_path + '/' + file, apertium_path + '/' + file)
+        copyfile(file, apertium_path + '/' + file)
+
+
+def change_module(apertium_path, lang_pair):
+    with open(apertium_path + '/posteditor.py', 'r', encoding='utf-8') as file:
+        f = file.read()
+
+    f = re.sub('_bidix-entries.txt', '%s/%s_bidix-entries.txt' % (apertium_path, lang_pair), f)
+    f = re.sub('_grammar-context.json', '%s/%s_grammar-context.json' % (apertium_path, lang_pair), f)
+    f = re.sub('_other-context.json', '%s/%s_other-context.json' % (apertium_path, lang_pair), f)
+
+    with open(apertium_path + '/posteditor.py', 'w', encoding='utf-8') as file:
+        file.write(f)
 
 
 def change_main_modes(apertium_path, main_changes, lang_pair, work_mode):
@@ -84,11 +100,15 @@ def main():
 
     python_path = sys.executable
 
+    if apertium_path[-1] == '/':
+        apertium_path = apertium_path[:-1]
+
     main_changes = '  <mode name="%s-posteditor" install="no">\n    <pipeline>\n        <program name="%s">\n            <file name="posteditor.py"/>\n        </program>\n    </pipeline>\n  </mode>\n\n' % (lang_pair, python_path)
     other_changes = ' | %s \'%s/posteditor.py\'' % (python_path, apertium_path)
 
     copyfile('posteditor.py', apertium_path + '/posteditor.py')
     copy_files(lang_pair, apertium_path)
+    change_module(apertium_path, lang_pair)
 
     change_main_modes(apertium_path, main_changes, lang_pair, work_mode)
     change_other_modes(apertium_path, other_changes, lang_pair, work_mode)

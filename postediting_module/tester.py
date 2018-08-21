@@ -1,6 +1,22 @@
 import re
 import json
+import argparse
 from nltk.tokenize import word_tokenize as tokenizer
+
+
+"""
+===================== Global arguments section =================================
+"""
+
+parser = argparse.ArgumentParser(description='Tester for postediting module for Apertium pipeline')
+parser.add_argument('lang_pair', help='For example, bel-rus')
+
+args = parser.parse_args()
+
+
+"""
+===================== Main code section =================================
+"""
 
 
 def process_bd_postedits(postedits):
@@ -150,11 +166,12 @@ def apply_postedits(mt_string, bd_postedits, grammar_postedits, other_postedits)
 
 
 def main():
+	lang_pair = args.lang_pair
 	mt_string = input()
 
-	bidix_postedits = process_bd_postedits('_bidix-entries.txt')
-	grammar_postedits = process_other_postedits('_grammar-context.json')
-	other_postedits = process_other_postedits('_other-context.json')
+	bidix_postedits = process_bd_postedits('%s_bidix-entries.txt' % (lang_pair))
+	grammar_postedits = process_other_postedits('%s_grammar-context.json' % (lang_pair))
+	other_postedits = process_other_postedits('%s_other-context.json' % (lang_pair))
 
 	apply_postedits(mt_string, bidix_postedits, grammar_postedits, other_postedits)
 
