@@ -56,10 +56,10 @@ Example 3:
 
 ### Testing
 
-If you want to test posteditor on bel-rus without installing it in the pipeline, you can just run _posteditor.py_: 
+If you want to test posteditor on bel-rus without installing it in the pipeline, you can just run _tester.py_: 
 
 ```cmd
-$ python3 posteditor.py
+$ python3 tester.py bel-rus
 ```
 
 It will require an input string which should be an output of the raw Apertium pipeline.
