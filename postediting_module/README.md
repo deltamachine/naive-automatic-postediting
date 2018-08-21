@@ -64,6 +64,8 @@ $ python3 posteditor.py
 
 It will require an input string which should be an output of the raw Apertium pipeline.
 
+Example 1
+
 * Input: _Быстрая серая лисичка ***пераскаквае** просто через ленивой собаку._
 * Output: _Быстрая серая лисичка **перепрыгивает** просто через ленивой собаку._
 
