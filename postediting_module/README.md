@@ -44,9 +44,9 @@ Example 1:
 
 Example 2:
 
-* Source sentence: _У **гэтым** класе 40 вучняў._
-* Translation without postediting module: _В **этим** классе 40 учеников._
-* Translation with postediting module: _В **этом** классе 40 учеников._
+* Source sentence: _Дом ля **возера** мой._
+* Translation without postediting module: _Дом у **озеро** мой._
+* Translation with postediting module: _Дом у **озера** мой._
 
 Example 3:
 
@@ -71,8 +71,8 @@ Example 1
 
 Example 2:
 
-* Input: _В **этим** классе 40 учеников._
-* Output: _В **этом** классе 40 учеников._
+* Input: _Дом у **озеро** мой._
+* Output: _Дом у **озера** мой._
 
 Example 3:
 
