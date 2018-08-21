@@ -91,7 +91,9 @@ def find_rules(postedits, s_lang, t_lang, input1, input2):
 			s_context = value[0]
 			metric1, metric2 = calculate_metric(mt, pe)
 
-			if 0 <= metric1 <= 40 and 0 <= metric2 <= 40:
+			#print(s, mt, pe, metric1, metric2)
+
+			if 0 <= metric1 <= 50 and 0 <= metric2 <= 50:
 				for cont in s_context:
 					file1.write('%s\t%s\n' % (cont[0], cont[1]))
 
@@ -138,8 +140,15 @@ def process_tagged_words(output1, output2):
 	draft_rules = {}
 
 	for context, words in zip(output1, output2):
+		#print(context, words)
+		if words == '^./.<sent>$':
+			continue
+
 		context = context.split('\n')
+		words = re.sub('\^\./\.\<sent\>\$', '', words)
 		words = words.split('\t')
+
+		#print(words)
 
 		s = clean_parsed_word(words[0])	
 		pe = clean_parsed_word(words[1])
@@ -183,39 +192,43 @@ def write_rules(draft_rules, s_lang, t_lang):
 			lc = clean_context(value[0])
 			rc = clean_context(value[1])
 
-			print(key, lc, rc)
+			#print(key, lc, rc)
 
-			file.write('<rule>\n')
-			
-			if len(lc) > 2:
-				file.write('  <or>\n')
-
-				for i in range(0, len(lc)-1, 2):
-					file.write('    <match lemma="%s" tags="%s"/>\n' % (lc[i], lc[i+1]))
+			if lc != []:
+				file.write('<rule>\n')
 				
-				file.write('  </or>\n')
-			elif len(lc) == 2:
-				file.write('  <match lemma="%s" tags="%s"/>\n' % (lc[0], lc[1]))
-			else:
-				pass
+				if len(lc) > 2:
+					file.write('  <or>\n')
 
-			file.write('  <match lemma="%s" tags="%s">\n' % (key[0], key[1]))
-			file.write('    <select lemma="%s" tags="%s"/>\n' % (key[2], key[3]))
-			file.write('  </match>\n')
+					for i in range(0, len(lc)-1, 2):
+						file.write('    <match lemma="%s" tags="%s"/>\n' % (lc[i], lc[i+1]))
+					
+					file.write('  </or>\n')
+				if len(lc) == 2:
+					file.write('  <match lemma="%s" tags="%s"/>\n' % (lc[0], lc[1]))
 
-			if len(rc) > 2:
-				file.write('  <or>\n')
+				file.write('  <match lemma="%s" tags="%s">\n' % (key[0], key[1]))
+				file.write('    <select lemma="%s" tags="%s"/>\n' % (key[2], key[3]))
+				file.write('  </match>\n</rule>\n\n')
 
-				for i in range(0, len(rc)-1, 2):
-					file.write('    <match lemma="%s" tags="%s"/>\n' % (rc[i], rc[i+1]))
-				
-				file.write('  </or>\n')
-			elif len(rc) == 2:
-				file.write('  <match lemma="%s" tags="%s"/>\n' % (rc[0], rc[1]))
-			else:
-				pass
+			if rc != []:
+				#print(rc)
+				file.write('<rule>\n')
+				file.write('  <match lemma="%s" tags="%s">\n' % (key[0], key[1]))
+				file.write('    <select lemma="%s" tags="%s"/>\n' % (key[2], key[3]))
+				file.write('  </match>\n')
 
-			file.write('</rule>\n\n')
+				if len(rc) > 2:
+					file.write('  <or>\n')
+
+					for i in range(0, len(rc)-1, 2):
+						file.write('    <match lemma="%s" tags="%s"/>\n' % (rc[i], rc[i+1]))
+					
+					file.write('  </or>\n')
+				if len(rc) == 2:
+					file.write('  <match lemma="%s" tags="%s"/>\n' % (rc[0], rc[1]))
+
+				file.write('</rule>\n\n')
 
 
 def create_lr_rules(postedits, s_lang, t_lang, path):
@@ -231,6 +244,7 @@ def create_lr_rules(postedits, s_lang, t_lang, path):
 	tag_corpus(input2, output2, s_lang, t_lang, path, 'target')
 
 	draft_rules = process_tagged_words(output1, output2)
+	#print(draft_rules)
 	write_rules(draft_rules, s_lang, t_lang)
 
 
@@ -241,6 +255,7 @@ def main():
 	path = args.path
 
 	postedits = process_postedits(postedits)
+	#print(postedits)
 	create_lr_rules(postedits, s_lang, t_lang, path)
 
 

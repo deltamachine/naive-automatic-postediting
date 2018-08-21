@@ -63,16 +63,24 @@ def find_context(entries, lines):
 		context[tuple(e)] = [[], []]
 
 		for line in lines:
+
 			try:
 				s = tokenizer(line[0])
 				mt = tokenizer(line[1])
 				t = tokenizer(line[2])
-
-				if mt[0] == t[0] and mt[2] == t[2] and e[0] in s and e[1] in mt and e[2] in t:
-					context[tuple(e)][0].append([s[0], s[2]])
-					context[tuple(e)][1].append([mt[0], mt[2]])
 			except:
-				pass
+				continue
+
+			if e[0] in s and e[1] in mt and e[2] in t:
+				s_ind = s.index(e[0])
+				mt_ind = mt.index(e[1])
+				t_ind = t.index(e[2])
+
+				if mt[0:mt_ind] == t[0:t_ind] and mt[mt_ind+1:] == t[t_ind+1:]:
+					context[tuple(e)][0].append([' '.join(s[0:s_ind]), ' '.join(s[s_ind + 1:])])
+					context[tuple(e)][1].append([' '.join(mt[0:mt_ind]), ' '.join(mt[mt_ind + 1:])])
+
+					#print(context)
 
 	cleaned_context = {}
 

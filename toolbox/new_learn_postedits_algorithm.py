@@ -200,20 +200,23 @@ def align(source, target):
 	word_alignment = []
 
 	for t_pos in sorted(target.keys()):
-		options = fill_options(source, target, t_pos)
-		sim_pos, position, difference = fill_positions(source, target, t_pos, options)
+		try:
+			options = fill_options(source, target, t_pos)
+			sim_pos, position, difference = fill_positions(source, target, t_pos, options)
 
-		if sim_pos != -1:
-			pos_alignment.append((sim_pos, t_pos))
-			word_alignment.append((source[sim_pos][0], target[t_pos][0]))	
+			if sim_pos != -1:
+				pos_alignment.append((sim_pos, t_pos))
+				word_alignment.append((source[sim_pos][0], target[t_pos][0]))	
 
-		elif difference > 3:
-			continue
+			elif difference > 3:
+				continue
 
-		else:
-			pos_alignment.append((position, t_pos))
-			word_alignment.append((source[position][0], target[t_pos][0]))		
-	
+			else:
+				pos_alignment.append((position, t_pos))
+				word_alignment.append((source[position][0], target[t_pos][0]))		
+		except:
+			pass
+			
 	return word_alignment
 
 

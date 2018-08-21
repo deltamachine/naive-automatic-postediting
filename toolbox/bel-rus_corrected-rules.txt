@@ -1,0 +1,14 @@
+<rule>
+  <match lemma="напісаць" tags="vblex.*"/>
+  <match lemma="ліст" tags="n.*">
+    <select lemma="письмо" tags="n.*"/>
+  </match>
+</rule>
+
+<rule>
+  <match lemma="тры" tags="num.*"/>
+  <match lemma="кубак" tags="n.*">
+    <select lemma="чашка" tags="n.*"/>
+  </match>
+</rule>
+
