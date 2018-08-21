@@ -21,17 +21,18 @@ Script _setup.py_ adds all the needed files in language pair directory and chang
 
 * _work_mode_: **pe** for installing the posteditor and changing modes, **raw** for backwarding changes.
 * _language_pair_: for example, **bel-rus**.
+* _path_to_language_pair_: for example, **/home/apertium/apertium-bel-rus**.
 
 This script will install the posteditor and add it to the bel-rus pipeline:
 
 ```cmd
-$ python3 setup.py pe bel-rus
+$ python3 setup.py pe bel-rus /home/.../apertium-bel-rus
 ```
 
 And this script will backward changes.
 
 ```cmd
-$ python3 setup.py raw bel-rus
+$ python3 setup.py raw bel-rus /home/.../apertium-bel-rus
 ```
 #### How it works (examples for Belarusian - Russian)
 
