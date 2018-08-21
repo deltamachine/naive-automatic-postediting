@@ -81,13 +81,15 @@ def change_other_modes(apertium_path, other_changes, lang_pair, work_mode):
     with open(main_mode, 'r', encoding='utf-8') as file:
         f = file.read().strip(' \n')
 
-    if work_mode == 'pe':
+    """if work_mode == 'pe':
         f = f + other_changes
     else:
-        f = '|'.join(f.split('|')[:-1])
+        f = '|'.join(f.split('|')[:-1])"""
 
-    with open(main_mode, 'w', encoding='utf-8') as file:
-        file.write(f)
+    f = f + other_changes
+
+    #with open(main_mode, 'w', encoding='utf-8') as file:
+        #file.write(f)
 
     with open(pe_mode, 'w', encoding='utf-8') as file:
         file.write(f)
@@ -98,7 +100,7 @@ def main():
     lang_pair = args.lang_pair
     apertium_path = args.path
 
-    python_path = sys.executable
+    python_path = 'python3'
 
     if apertium_path[-1] == '/':
         apertium_path = apertium_path[:-1]
