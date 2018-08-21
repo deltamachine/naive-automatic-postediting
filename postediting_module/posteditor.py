@@ -1,6 +1,5 @@
 import re
 import json
-from nltk.tokenize import word_tokenize as tokenizer
 
 
 def process_bd_postedits(postedits):
@@ -160,4 +159,9 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
+	try:
+		from nltk.tokenize import word_tokenize as tokenizer
+		
+		main()
+	except ImportError:
+		print('nltk library not found. Please install it and all dependencies.')
